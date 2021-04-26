@@ -8,5 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!-- CustomAppColors -->
-    
+    <color name="light_blue">#00A3D7</color>
+    <color name="dark_blue">#0070B1</color>
+    <color name="background_white">#FBFBFD</color>
+    <color name="text_gray_color">#5D5D5E</color>
 </resources>
