@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">linea-rapida</string>
     <string name="logo_description">Linea Rápida logotype.</string>
+    <string name="email_edit_text">Correo electrónico</string>
+    <string name="passwrod_edit_text">Contraseña</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="get_help">Obtén ayuda</string>
 </resources>

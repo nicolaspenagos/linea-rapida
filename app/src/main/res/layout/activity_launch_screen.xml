@@ -16,5 +16,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/linea_rapida_logo" />
+        app:srcCompat="@drawable/linea_rapida_white_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
