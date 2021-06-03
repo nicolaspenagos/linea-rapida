@@ -62,4 +62,32 @@
 
     <style name="Theme.Linearapida.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- HEADER -->
+    <style name="AppHeader">
+        <item name="android:background">@drawable/header_background</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+    <!-- GO BACK -->
+    <style name="AppGoBackButton">
+        <item name="android:layout_width">24dp</item>
+    </style>
+    <!-- APP HEADER TITLE -->
+    <style name="AppHeaderTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/gothamrounded_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!--  TITLE -->
+    <style name="AppActivityTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/gothamrounded_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- CUERPO -->
+    <style name="AppCuerpoText" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- BOTTOM NAVIGATION BAR -->
+    <style name="AppBottomNavigationBar">
+        <item name="android:background">@drawable/bottom_navigation_background</item>
+        <item name="android:elevation">2dp</item>
+    </style>
 </resources>

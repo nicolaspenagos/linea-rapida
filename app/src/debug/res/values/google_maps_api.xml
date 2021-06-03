@@ -4,7 +4,7 @@
 
     To get one, follow this link, follow the directions and press "Create" at the end:
 
-    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=79:58:5B:0B:D8:90:4E:B3:C4:1A:BD:DA:E2:33:60:20:47:C4:F3:67%3Bcom.example.linea_rapida
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=98:9A:F0:AF:F3:E5:8D:7D:98:97:C6:9D:CB:5A:BE:90:F1:61:70:29%3Bcom.example.linea_rapida
 
     You can also add your credentials to an existing key, using these values:
 
@@ -12,7 +12,7 @@
     com.example.linea_rapida
 
     SHA-1 certificate fingerprint:
-    79:58:5B:0B:D8:90:4E:B3:C4:1A:BD:DA:E2:33:60:20:47:C4:F3:67
+    98:9A:F0:AF:F3:E5:8D:7D:98:97:C6:9D:CB:5A:BE:90:F1:61:70:29
 
     Alternatively, follow the directions here:
     https://developers.google.com/maps/documentation/android/start#get-key

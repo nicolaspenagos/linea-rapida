@@ -9,4 +9,10 @@
     <string name="title_activity_case_management">CaseManagementActivity</string>
     <string name="tab_text_1">Lista de Casos</string>
     <string name="tab_text_2">Mapa</string>
+    <string name="forgot_password_header">CONTRASEÑA OLVIDADA</string>
+    <string name="forgot_password_title">Restablecimiento de contraseña</string>
+    <string name="forgot_password_cuerpo_text">Ingresa tu correo para recuperar contraseña</string>
+    <string name="send">Enviar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
