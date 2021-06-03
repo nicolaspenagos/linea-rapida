@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "397190968065",
+    "project_id": "linea-rapida",
+    "storage_bucket": "linea-rapida.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397190968065:android:b41dc67617058d98c96100",
+        "android_client_info": {
+          "package_name": "com.example.linea_rapida"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397190968065-8bdin96gijc7d3kujqrfaj32kbmna7l5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClZx-W3o-e1tU44g9dh_ZsjLnKHMqWpAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397190968065-8bdin96gijc7d3kujqrfaj32kbmna7l5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

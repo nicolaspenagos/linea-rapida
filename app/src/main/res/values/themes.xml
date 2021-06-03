@@ -53,4 +53,13 @@
         <item name="android:textSize">16dp</item>
     </style>
 
+    <style name="Theme.Linearapida.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Linearapida.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Linearapida.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
