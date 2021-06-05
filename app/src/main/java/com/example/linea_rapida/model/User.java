@@ -5,13 +5,13 @@ public class User {
     private String username;
     private String id;
     private String password;
-    private String role;
+    private Role role;
     private String fullName;
 
     public User() {
     }
 
-    public User(String username, String id, String password, String role, String fullName) {
+    public User(String username, String id, String password, Role role, String fullName) {
         this.username = username;
         this.id = id;
         this.password = password;
@@ -43,11 +43,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
