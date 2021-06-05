@@ -40,6 +40,35 @@ public class MainActivity extends AppCompatActivity {
             //Si el usuario es admin -- Falta por implementar..
             homeFragment = HomeFragmentAdmin.newInstance();
 
+            navigator.setOnNavigationItemReselectedListener(
+
+                    (menuItem)->{
+
+                        switch (menuItem.getItemId()){
+
+                            case R.id.mapItem:
+                                showFragment(mapsFragment);
+                                break;
+
+                            case R.id.homeItem:
+                                showFragment(homeFragment);
+                                break;
+
+                            case R.id.profileItem:
+                                showFragment(profileFragment);
+                                break;
+
+                        }
+                    }
+
+            );
+
+
+            navigator.setSelectedItemId(R.id.homeItem);
+            showFragment(homeFragment);
+
+
+
         }
 
     }

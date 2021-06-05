@@ -24,8 +24,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth auth;
 
-    private EditText eTEmail;
-    private EditText eTPassword;
+    private EditText emailET;
+    private EditText passwordET;
     private Button loginBtn;
     private TextView errorTV;
 
@@ -38,8 +38,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
         auth = FirebaseAuth.getInstance();
 
-        eTEmail = findViewById(R.id.loginETEmail);
-        eTPassword = findViewById(R.id.loginETPassword);
+        emailET = findViewById(R.id.loginETEmail);
+        passwordET = findViewById(R.id.loginETPassword);
         loginBtn = findViewById(R.id.loginBtn);
         errorTV =  findViewById(R.id.loginErorTV);
 
@@ -56,8 +56,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
                 errorTV.setText("");
 
-                String email = eTEmail.getText().toString().trim();
-                String password = eTPassword.getText().toString().trim();
+                String email = emailET.getText().toString().trim();
+                String password = passwordET.getText().toString().trim();
 
 
                 if(checkLoginData(email, password))
