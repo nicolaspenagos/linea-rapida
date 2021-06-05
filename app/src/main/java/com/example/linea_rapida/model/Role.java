@@ -20,8 +20,13 @@ public class Role {
 
     public Role(int roleId){
 
+        this.roleId = roleId;
+
+
         switch (roleId){
+            
             case ADMIN_ROLE:
+
                 this.name = "Administrator";
                 break;
             case DOCTOR_ROLE:
