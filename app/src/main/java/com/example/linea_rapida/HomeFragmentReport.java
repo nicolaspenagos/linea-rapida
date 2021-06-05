@@ -8,17 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ProfileFragment extends Fragment {
+
+public class HomeFragmentReport extends Fragment {
 
 
-    public ProfileFragment() {
+    public HomeFragmentReport() {
         // Required empty public constructor
     }
 
-
-
-    public static ProfileFragment newInstance() {
-        ProfileFragment fragment = new ProfileFragment();
+    public static HomeFragmentReport newInstance(String param1, String param2) {
+        HomeFragmentReport fragment = new HomeFragmentReport();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -36,6 +35,6 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return inflater.inflate(R.layout.fragment_home_report, container, false);
     }
 }

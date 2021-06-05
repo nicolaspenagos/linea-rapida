@@ -8,17 +8,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ProfileFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link HomeFragmentAdmin#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class HomeFragmentAdmin extends Fragment {
 
 
-    public ProfileFragment() {
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    public HomeFragmentAdmin() {
         // Required empty public constructor
     }
 
-
-
-    public static ProfileFragment newInstance() {
-        ProfileFragment fragment = new ProfileFragment();
+    // TODO: Rename and change types and number of parameters
+    public static HomeFragmentAdmin newInstance() {
+        HomeFragmentAdmin fragment = new HomeFragmentAdmin();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -36,6 +44,6 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return inflater.inflate(R.layout.fragment_home_admin, container, false);
     }
 }
