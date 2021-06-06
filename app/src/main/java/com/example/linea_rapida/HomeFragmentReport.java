@@ -16,7 +16,7 @@ public class HomeFragmentReport extends Fragment {
         // Required empty public constructor
     }
 
-    public static HomeFragmentReport newInstance(String param1, String param2) {
+    public static HomeFragmentReport newInstance() {
         HomeFragmentReport fragment = new HomeFragmentReport();
         Bundle args = new Bundle();
         fragment.setArguments(args);

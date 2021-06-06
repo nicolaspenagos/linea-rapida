@@ -36,6 +36,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
    private EditText passwordET;
    private RadioButton plantRdoBtn;
    private RadioButton fieldRdoBtn;
+   private RadioButton adminRdoBtn;
    private Button signUpBtn;
    private TextView signUpErrorTv;
 
@@ -76,16 +77,14 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
         passwordET = root.findViewById(R.id.signUpPasswordET);
         plantRdoBtn = root.findViewById(R.id.signUpPlantRdoBtn);
         fieldRdoBtn = root.findViewById(R.id.signUpfieldRdoBtn);
+        adminRdoBtn = root.findViewById(R.id.signUpAdminRdoBtn);
         signUpBtn = root.findViewById(R.id.signUpBtn);
         signUpErrorTv = root.findViewById(R.id.signUpErrorTV);
 
         signUpBtn.setOnClickListener(this);
         plantRdoBtn.setOnClickListener(this);
         fieldRdoBtn.setOnClickListener(this);
-
-
-
-
+        adminRdoBtn.setOnClickListener(this);
 
         return root;
 
@@ -118,8 +117,10 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
         else if(fieldRdoBtn.isChecked())
             role =  new Role(Role.REPORTER_ROLE);
-        else  //Falta agregar el Radio Button para admin *********************************************
+        else  if(adminRdoBtn.isChecked())//Falta agregar el Radio Button para admin *********************************************
             role = new Role(Role.ADMIN_ROLE);
+        else
+            return;
 
         User newUser = new User(username, id, role, fullname, email);
 
@@ -128,7 +129,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
     }
 
-    private boolean checkSignUpData(String fullname, String email, String username, String password, boolean plant, boolean field) {
+    private boolean checkSignUpData(String fullname, String email, String username, String password, boolean plant, boolean field, boolean admin) {
 
 
         String errorMsg = "";
@@ -146,7 +147,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
         if(password.equals(""))
             errorMsg += "Porfavor añade tu contraseña.";
 
-        if(!plant && !field)
+        if(!plant && !field && !admin)
             errorMsg += "Porfavor añade un rol.";
 
 
@@ -173,8 +174,9 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
                 String password = passwordET.getText().toString().trim();
                 boolean plant = plantRdoBtn.isChecked();
                 boolean field = fieldRdoBtn.isChecked();
+                boolean admin = adminRdoBtn.isChecked();
 
-                if(checkSignUpData(fullname, email, username, password, plant, field))
+                if(checkSignUpData(fullname, email, username, password, plant, field, admin))
                     signUp(fullname, email, username, password);
 
 

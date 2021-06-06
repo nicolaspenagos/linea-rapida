@@ -20,7 +20,7 @@ public class HomeFragmentCases extends Fragment {
         // Required empty public constructor
     }
 
-    public static HomeFragmentCases newInstance(String param1, String param2) {
+    public static HomeFragmentCases newInstance() {
         HomeFragmentCases fragment = new HomeFragmentCases();
         Bundle args = new Bundle();
         fragment.setArguments(args);
