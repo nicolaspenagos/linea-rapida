@@ -2,10 +2,8 @@ package com.example.linea_rapida;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +14,8 @@ import android.widget.TextView;
 
 import com.example.linea_rapida.model.Role;
 import com.example.linea_rapida.model.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.concurrent.Executor;
 
 public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
@@ -37,6 +30,8 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
    private RadioButton plantRdoBtn;
    private RadioButton fieldRdoBtn;
    private RadioButton adminRdoBtn;
+   private RadioButton manRdoBtn;
+   private RadioButton womanRdoBtn;
    private Button signUpBtn;
    private TextView signUpErrorTv;
 
@@ -78,6 +73,8 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
         plantRdoBtn = root.findViewById(R.id.signUpPlantRdoBtn);
         fieldRdoBtn = root.findViewById(R.id.signUpfieldRdoBtn);
         adminRdoBtn = root.findViewById(R.id.signUpAdminRdoBtn);
+        manRdoBtn = root.findViewById(R.id.signUpManRdoBtn);
+        womanRdoBtn = root.findViewById(R.id.signUpWomanRdoBtn);
         signUpBtn = root.findViewById(R.id.signUpBtn);
         signUpErrorTv = root.findViewById(R.id.signUpErrorTV);
 
@@ -85,6 +82,8 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
         plantRdoBtn.setOnClickListener(this);
         fieldRdoBtn.setOnClickListener(this);
         adminRdoBtn.setOnClickListener(this);
+        manRdoBtn.setOnClickListener(this);
+        womanRdoBtn.setOnClickListener(this);
 
         return root;
 
@@ -117,19 +116,21 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
         else if(fieldRdoBtn.isChecked())
             role =  new Role(Role.REPORTER_ROLE);
-        else  if(adminRdoBtn.isChecked())//Falta agregar el Radio Button para admin *********************************************
+        else  if(adminRdoBtn.isChecked())
             role = new Role(Role.ADMIN_ROLE);
         else
             return;
 
-        User newUser = new User(username, id, role, fullname, email);
+        String gender = (manRdoBtn.isChecked())? "M" : "W";
+
+        User newUser = new User(username, id, role, fullname, email, gender);
 
         db.collection("users").document(newUser.getId()).set(newUser);
 
 
     }
 
-    private boolean checkSignUpData(String fullname, String email, String username, String password, boolean plant, boolean field, boolean admin) {
+    private boolean checkSignUpData(String fullname, String email, String username, String password, boolean plant, boolean field, boolean admin, boolean man, boolean woman) {
 
 
         String errorMsg = "";
@@ -149,6 +150,9 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
         if(!plant && !field && !admin)
             errorMsg += "Porfavor añade un rol.";
+
+        if(!woman && !man)
+            errorMsg += "Porfavor añade un género.";
 
 
         if(errorMsg.equals(""))
@@ -175,8 +179,10 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
                 boolean plant = plantRdoBtn.isChecked();
                 boolean field = fieldRdoBtn.isChecked();
                 boolean admin = adminRdoBtn.isChecked();
+                boolean man = manRdoBtn.isChecked();
+                boolean woman = womanRdoBtn.isChecked();
 
-                if(checkSignUpData(fullname, email, username, password, plant, field, admin))
+                if(checkSignUpData(fullname, email, username, password, plant, field, admin, man, woman))
                     signUp(fullname, email, username, password);
 
 
@@ -189,6 +195,13 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener{
 
             case R.id.signUpfieldRdoBtn:
                 plantRdoBtn.setChecked(false);
+                break;
+
+            case R.id.signUpManRdoBtn:
+                womanRdoBtn.setChecked(false);
+                break;
+            case R.id.signUpWomanRdoBtn:
+                manRdoBtn.setChecked(false);
                 break;
         }
     }

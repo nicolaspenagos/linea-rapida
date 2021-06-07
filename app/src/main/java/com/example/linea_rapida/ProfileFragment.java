@@ -10,29 +10,42 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.linea_rapida.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
 
     private FirebaseAuth auth;
 
+    private TextView nameET;
+    private TextView emailET;
+    private TextView roleET;
     private Button signOutBtn;
+    private ImageView image;
+
+    private User currentUser;
 
 
-    public ProfileFragment() {
+    public ProfileFragment(User currentUser) {
         // Required empty public constructor
-
+        this.currentUser = currentUser;
         auth = FirebaseAuth.getInstance();
     }
 
 
 
-    public static ProfileFragment newInstance() {
-        ProfileFragment fragment = new ProfileFragment();
+    public static ProfileFragment newInstance(User currentUser) {
+
+
+        ProfileFragment fragment = new ProfileFragment(currentUser);
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
+
+
     }
 
     @Override
@@ -48,7 +61,20 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
         signOutBtn = root.findViewById(R.id.profileLogOutBtn);
+        nameET = root.findViewById(R.id.profileNameET);
+        emailET = root.findViewById(R.id.profileEmailET);
+        roleET = root.findViewById(R.id.profileRoleET);
+        image = root.findViewById(R.id.profileImage);
+
+        nameET.setText(currentUser.getFullName());
+        emailET.setText(currentUser.getEmail());
+        roleET.setText(currentUser.getRole().getName());
+
+        if(currentUser.getGender().equals("W")){
+            image.setImageResource(R.drawable.dra);
+        }
 
         signOutBtn.setOnClickListener((v)->{
 

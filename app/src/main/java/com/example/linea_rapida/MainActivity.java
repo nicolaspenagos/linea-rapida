@@ -46,12 +46,11 @@ public class MainActivity extends AppCompatActivity {
             goToLogin();
         }else{
 
+
+
+
+
             navigator = findViewById(R.id.navigatorBNV);
-
-            mapsFragment = new MapsFragment();
-            profileFragment = ProfileFragment.newInstance();
-
-
 
             navigator.setOnNavigationItemSelectedListener(
                     (menuItem)->{
@@ -101,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
                                     break;
 
                             }
+
+                            mapsFragment = new MapsFragment();
+                            profileFragment = ProfileFragment.newInstance(currentUser);
 
                             navigator.setSelectedItemId(R.id.homeItem);
                             showFragment(homeFragment);

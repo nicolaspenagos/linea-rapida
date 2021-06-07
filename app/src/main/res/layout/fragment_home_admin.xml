@@ -67,12 +67,12 @@
         android:id="@+id/signUpBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Registrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpPlantRdoBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/signUpManRdoBtn" />
 
     <RadioButton
         android:id="@+id/signUpPlantRdoBtn"
@@ -119,5 +119,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpBtn" />
+
+    <RadioButton
+        android:id="@+id/signUpManRdoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Hombre"
+        app:layout_constraintEnd_toStartOf="@+id/signUpWomanRdoBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpPlantRdoBtn" />
+
+    <RadioButton
+        android:id="@+id/signUpWomanRdoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Mujer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/signUpManRdoBtn"
+        app:layout_constraintTop_toBottomOf="@+id/signUpfieldRdoBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

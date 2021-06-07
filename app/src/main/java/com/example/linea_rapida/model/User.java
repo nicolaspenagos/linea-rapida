@@ -7,16 +7,18 @@ public class User {
     private Role role;
     private String fullName;
     private String email;
+    private String gender;
 
     public User() {
     }
 
-    public User(String username, String id, Role role, String fullName, String email) {
+    public User(String username, String id, Role role, String fullName, String email, String gender) {
         this.username = username;
         this.id = id;
         this.role = role;
         this.fullName = fullName;
         this.email = email;
+        this.gender = gender;
     }
 
     public String getUsername() {
@@ -57,5 +59,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
