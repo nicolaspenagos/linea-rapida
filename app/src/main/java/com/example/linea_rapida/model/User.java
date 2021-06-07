@@ -4,19 +4,21 @@ public class User {
 
     private String username;
     private String id;
-    private String password;
-    private String role;
+    private Role role;
     private String fullName;
+    private String email;
+    private String gender;
 
     public User() {
     }
 
-    public User(String username, String id, String password, String role, String fullName) {
+    public User(String username, String id, Role role, String fullName, String email, String gender) {
         this.username = username;
         this.id = id;
-        this.password = password;
         this.role = role;
         this.fullName = fullName;
+        this.email = email;
+        this.gender = gender;
     }
 
     public String getUsername() {
@@ -35,19 +37,11 @@ public class User {
         this.id = id;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -57,5 +51,21 @@ public class User {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
