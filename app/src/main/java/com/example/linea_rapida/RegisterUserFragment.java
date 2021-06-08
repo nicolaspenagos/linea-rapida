@@ -114,7 +114,6 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                                 String adminEmail = preferences.getString("email", "NO_EMAIL");
                                 String adminPassword = preferences.getString("password", "NO_PASSWORD");
 
-                                Log.e(">>>", "Holooooo");
                                 createUser(fullname, email, username, id);
 
                                 auth.signOut();
@@ -141,7 +140,6 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
 
     private void createUser(String fullname, String email, String username, String id) {
 
-        Log.e(">>>", "Holaaaa");
         // Creating the role
         Role role;
 

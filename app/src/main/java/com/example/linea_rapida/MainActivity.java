@@ -51,11 +51,6 @@ public class MainActivity extends AppCompatActivity {
         }else{
 
 
-            Log.e(">>>>", ""+fbUser.getEmail());
-
-
-
-
             navigator = findViewById(R.id.navigatorBNV);
 
             navigator.setOnNavigationItemSelectedListener(

@@ -1,5 +1,6 @@
 package com.example.linea_rapida;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -26,7 +27,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
 
     private Button button_plant;
     private Button button_field;
-    private ImageButton button_add;
+    private ImageView button_add;
     private ImageView button_back;
 
     private User user;
@@ -66,8 +67,6 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
         button_plant.setOnClickListener(this);
         button_field.setOnClickListener(this);
 
-        button_field.setBackgroundColor(Color.parseColor("#FFFFFF"));
-        button_field.setTextColor(Color.parseColor("#059BD3"));
 
         button_add.setOnClickListener(
                 (v) -> {
@@ -92,18 +91,18 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button_plant:
-                button_field.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                button_field.setTextColor(Color.parseColor("#059BD3"));
-                button_plant.setBackgroundColor(Color.parseColor("#059BD3"));
-                button_plant.setTextColor(Color.parseColor("#FFFFFF"));
+                button_field.setBackgroundResource(R.drawable.button_background_2);
+                button_field.setTextColor(getResources().getColor(R.color.light_blue));
+                button_plant.setBackgroundResource(R.drawable.button_background);
+                button_plant.setTextColor(getResources().getColor(R.color.white));
                 adapter.onlyPlant();
                 break;
 
             case R.id.button_field:
-                button_field.setBackgroundColor(Color.parseColor("#059BD3"));
-                button_field.setTextColor(Color.parseColor("#FFFFFF"));
-                button_plant.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                button_plant.setTextColor(Color.parseColor("#059BD3"));
+                button_field.setBackgroundResource(R.drawable.button_background);;
+                button_field.setTextColor(getResources().getColor(R.color.white));
+                button_plant.setBackgroundResource(R.drawable.button_background_2);
+                button_plant.setTextColor(getResources().getColor(R.color.light_blue));
                 adapter.onlyField();
                 break;
         }
