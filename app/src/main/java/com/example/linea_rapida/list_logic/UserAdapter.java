@@ -41,7 +41,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserView>{
                 User u = new User("username", UUID.randomUUID().toString(), rol1,"planta " + i, "email", "M");
                 users.add(u);
 
-                User w = new User("username", UUID.randomUUID().toString(), rol1,"campo " + i, "email", "M");
+                User w = new User("username", UUID.randomUUID().toString(), rol2,"campo " + i, "email", "M");
                 users.add(w);
             }
 

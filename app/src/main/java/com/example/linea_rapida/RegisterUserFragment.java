@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -33,6 +35,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
    private RadioButton manRdoBtn;
    private RadioButton womanRdoBtn;
    private Button signUpBtn;
+   private ImageView backBtn;
    private TextView signUpErrorTv;
 
 
@@ -77,6 +80,12 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         womanRdoBtn = root.findViewById(R.id.signUpWomanRdoBtn);
         signUpBtn = root.findViewById(R.id.signUpBtn);
         signUpErrorTv = root.findViewById(R.id.signUpErrorTV);
+        backBtn = root.findViewById(R.id.button_back2);
+
+        backBtn.setOnClickListener(
+                v -> {
+                    ((MainActivity)getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+                });
 
         signUpBtn.setOnClickListener(this);
         plantRdoBtn.setOnClickListener(this);
@@ -182,19 +191,26 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                 boolean man = manRdoBtn.isChecked();
                 boolean woman = womanRdoBtn.isChecked();
 
-                if(checkSignUpData(fullname, email, username, password, plant, field, admin, man, woman))
+                if(checkSignUpData(fullname, email, username, password, plant, field, admin, man, woman)) {
                     signUp(fullname, email, username, password);
-
+                    ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+                }
 
                 break;
 
             case R.id.signUpPlantRdoBtn:
                 fieldRdoBtn.setChecked(false);
-
+                adminRdoBtn.setChecked(false);
                 break;
 
             case R.id.signUpfieldRdoBtn:
                 plantRdoBtn.setChecked(false);
+                adminRdoBtn.setChecked(false);
+                break;
+
+            case R.id.signUpAdminRdoBtn:
+                plantRdoBtn.setChecked(false);
+                fieldRdoBtn.setChecked(false);
                 break;
 
             case R.id.signUpManRdoBtn:
