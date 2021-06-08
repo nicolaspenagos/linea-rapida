@@ -1,9 +1,11 @@
 package com.example.linea_rapida;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,11 +105,33 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
 
-                        task -> {
+                     task -> {
                             if(task.isSuccessful()){
-                                createUser(fullname, email, username, auth.getCurrentUser().getUid());
+
+                                String id = auth.getCurrentUser().getUid();
+
+                                SharedPreferences preferences = getContext().getSharedPreferences("bin", getActivity().MODE_PRIVATE);
+                                String adminEmail = preferences.getString("email", "NO_EMAIL");
+                                String adminPassword = preferences.getString("password", "NO_PASSWORD");
+
+                                Log.e(">>>", "Holooooo");
+                                createUser(fullname, email, username, id);
+
+                                auth.signOut();
+                                auth.signInWithEmailAndPassword(adminEmail, adminPassword).addOnCompleteListener(
+                                        task1 -> {
+                                            ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+                                        }
+                                );
+
+
                             }
+
+
+
                         }
+
+
 
                 );
 
@@ -117,6 +141,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
 
     private void createUser(String fullname, String email, String username, String id) {
 
+        Log.e(">>>", "Holaaaa");
         // Creating the role
         Role role;
 
@@ -193,7 +218,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
 
                 if(checkSignUpData(fullname, email, username, password, plant, field, admin, man, woman)) {
                     signUp(fullname, email, username, password);
-                    ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+                   // ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
                 }
 
                 break;
