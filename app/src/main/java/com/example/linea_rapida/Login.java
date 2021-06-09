@@ -29,6 +29,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     private EditText passwordET;
     private Button loginBtn;
     private TextView errorTV;
+    private TextView forgottenPasswordTV;
 
 
     @Override
@@ -43,8 +44,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         passwordET = findViewById(R.id.loginETPassword);
         loginBtn = findViewById(R.id.loginBtn);
         errorTV =  findViewById(R.id.loginErorTV);
+        forgottenPasswordTV = findViewById(R.id.loginForgottenPasswordTV);
 
         loginBtn.setOnClickListener(this);
+        forgottenPasswordTV.setOnClickListener(this);
 
 
     }
@@ -68,6 +71,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.loginForgottenPasswordTV:
 
+                    Intent intent = new Intent(this, ResetPassword.class);
+                    startActivity(intent);
 
                 break;
 

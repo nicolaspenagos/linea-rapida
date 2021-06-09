@@ -102,4 +102,9 @@
         <item name="textAllCaps">false</item>
         <item name="android:textSize">16dp</item>
     </style>
+    <!-- ERROR TEXT VIEW -->
+    <style name="AppErrorET" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/error_color</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
 </resources>
