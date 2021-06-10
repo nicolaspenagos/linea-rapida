@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.linea_rapida.model.Role;
 import com.example.linea_rapida.model.User;
@@ -38,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+
+
         FirebaseUser fbUser = auth.getCurrentUser();
+
+
 
         if(fbUser == null){
             goToLogin();
         }else{
-
-
-
 
 
             navigator = findViewById(R.id.navigatorBNV);
@@ -137,6 +140,15 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
     }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
 
 
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +29,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     private EditText passwordET;
     private Button loginBtn;
     private TextView errorTV;
+    private TextView forgottenPasswordTV;
 
 
     @Override
@@ -42,8 +44,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         passwordET = findViewById(R.id.loginETPassword);
         loginBtn = findViewById(R.id.loginBtn);
         errorTV =  findViewById(R.id.loginErorTV);
+        forgottenPasswordTV = findViewById(R.id.loginForgottenPasswordTV);
 
         loginBtn.setOnClickListener(this);
+        forgottenPasswordTV.setOnClickListener(this);
 
 
     }
@@ -67,6 +71,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.loginForgottenPasswordTV:
 
+                    Intent intent = new Intent(this, ResetPassword.class);
+                    startActivity(intent);
 
                 break;
 
@@ -95,6 +101,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void login(String email, String password) {
+
+        SharedPreferences preferences = getSharedPreferences("bin", MODE_PRIVATE);
+        preferences.edit().putString("email", email).apply();
+        preferences.edit().putString("password", password).apply();
 
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

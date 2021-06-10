@@ -14,7 +14,7 @@ public class UserView extends RecyclerView.ViewHolder{
     private ConstraintLayout root;
     private TextView textView_name;
     private ImageView image_available;
-    private ImageButton button_options;
+    private ImageView button_options;
 
     public UserView(ConstraintLayout root) {
         super(root);
@@ -55,7 +55,7 @@ public class UserView extends RecyclerView.ViewHolder{
         this.image_available = image_available;
     }
 
-    public ImageButton getButton_options() {
+    public ImageView getButton_options() {
         return button_options;
     }
 

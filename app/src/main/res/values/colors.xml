@@ -12,4 +12,5 @@
     <color name="dark_blue">#0070B1</color>
     <color name="background_white">#FBFBFD</color>
     <color name="text_gray_color">#5D5D5E</color>
+    <color name="error_color">#D81B60</color>
 </resources>

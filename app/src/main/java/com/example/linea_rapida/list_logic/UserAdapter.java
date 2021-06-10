@@ -66,7 +66,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserView>{
         //XML --> View
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
-        View row = inflater.inflate(R.layout.userrow, null);
+        View row = inflater.inflate(R.layout.userrow, parent, false);
         ConstraintLayout rowroot = (ConstraintLayout) row;
         UserView userView = new UserView(rowroot);
 

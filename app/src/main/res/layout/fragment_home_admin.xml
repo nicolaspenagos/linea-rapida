@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_button"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragmentAdmin">
@@ -14,7 +15,7 @@
             android:id="@+id/constraintLayout"
             style="@style/AppHeader"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -37,62 +38,79 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:layout_marginBottom="33dp"
-                android:text="Usuarios"
+                android:text="USUARIOS"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
-            android:id="@+id/button_plant"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="10dp"
-            android:background="#059BD3"
-            android:text="Planta"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toStartOf="@+id/button_field"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-        <Button
-            android:id="@+id/button_field"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="90dp"
-            android:background="#059BD3"
-            android:text="Campo"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button_plant"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/users_list"
-            android:layout_width="300dp"
-            android:layout_height="400dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="100dp"
-            android:background="#FFFFFF"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/list_background"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            android:paddingLeft="3dip"
+            android:paddingRight="3dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:stretchColumns="0,1">
+
+
+                <TableRow>
+
+                    <Button
+                        android:id="@+id/button_plant"
+                        style="@style/AppButton"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="6dp"
+                        android:background="@drawable/button_background"
+                        android:text="Planta"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF" />
+
+
+                    <Button
+                        android:id="@+id/button_field"
+                        style="@style/AppButton2"
+                        android:layout_height="40dp"
+                        android:fontFamily="@font/poppins_light"
+                        android:text="Campo"
+                        android:textAllCaps="false" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/button_add"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="32dp"
+            android:src="@drawable/add_user"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_field" />
-
-        <ImageButton
-            android:id="@+id/button_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="#00FFFFFF"
-            android:src="@drawable/button_add"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/users_list" />
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

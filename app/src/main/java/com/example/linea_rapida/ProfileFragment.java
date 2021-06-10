@@ -24,6 +24,7 @@ public class ProfileFragment extends Fragment {
     private TextView emailET;
     private TextView roleET;
     private Button signOutBtn;
+    private Button changePassword;
     private ImageView image;
 
     private User currentUser;
@@ -67,10 +68,12 @@ public class ProfileFragment extends Fragment {
         emailET = root.findViewById(R.id.profileEmailET);
         roleET = root.findViewById(R.id.profileRoleET);
         image = root.findViewById(R.id.profileImage);
+        changePassword = root.findViewById(R.id.profileChangePassword);
 
         nameET.setText(currentUser.getFullName());
         emailET.setText(currentUser.getEmail());
         roleET.setText(currentUser.getRole().getName());
+
 
         if(currentUser.getGender().equals("W")){
             image.setImageResource(R.drawable.dra);
@@ -83,6 +86,10 @@ public class ProfileFragment extends Fragment {
             startActivity(intent);
 
 
+        });
+
+        changePassword.setOnClickListener((v)->{
+            ((MainActivity)getActivity()).showFragment(ChangePasswordFragment.newInstance());
         });
         return root;
     }
