@@ -27,18 +27,18 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
     private FirebaseFirestore db;
 
 
-   private EditText fullnameET;
-   private EditText emailET;
-   private EditText usernameET;
-   private EditText passwordET;
-   private RadioButton plantRdoBtn;
-   private RadioButton fieldRdoBtn;
-   private RadioButton adminRdoBtn;
-   private RadioButton manRdoBtn;
-   private RadioButton womanRdoBtn;
-   private Button signUpBtn;
-   private ImageView backBtn;
-   private TextView signUpErrorTv;
+    private EditText fullnameET;
+    private EditText emailET;
+    private EditText usernameET;
+    private EditText passwordET;
+    private RadioButton plantRdoBtn;
+    private RadioButton fieldRdoBtn;
+    private RadioButton adminRdoBtn;
+    private RadioButton manRdoBtn;
+    private RadioButton womanRdoBtn;
+    private Button signUpBtn;
+    private ImageView backBtn;
+    private TextView signUpErrorTv;
 
 
     public RegisterUserFragment() {
@@ -105,7 +105,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
 
-                     task -> {
+                        task -> {
                             if(task.isSuccessful()){
 
                                 String id = auth.getCurrentUser().getUid();
@@ -216,7 +216,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
 
                 if(checkSignUpData(fullname, email, username, password, plant, field, admin, man, woman)) {
                     signUp(fullname, email, username, password);
-                   // ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+                    // ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
                 }
 
                 break;

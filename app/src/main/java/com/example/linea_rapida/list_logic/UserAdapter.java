@@ -1,5 +1,6 @@
 package com.example.linea_rapida.list_logic;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,17 +40,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserView>{
 
             for (int i = 0; i < 5; i++) {
                 User u = new User("username", UUID.randomUUID().toString(), rol1,"planta " + i, "email", "M");
-                users.add(u);
+                //users.add(u);
 
                 User w = new User("username", UUID.randomUUID().toString(), rol2,"campo " + i, "email", "M");
-                users.add(w);
+                //users.add(w);
             }
 
         }else if(user.getRole().getRole() == Role.DOCTOR_ROLE){
             tickets = new ArrayList<>();
         }
 
-        onlyPlant();
+        //onlyPlant();
     }
 
 
@@ -104,6 +105,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserView>{
         }
 
         this.notifyDataSetChanged();
+    }
+
+    public void addUser(User user){
+        users.add(user);
+
     }
 
 }

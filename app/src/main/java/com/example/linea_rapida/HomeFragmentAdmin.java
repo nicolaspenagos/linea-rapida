@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import android.widget.ImageView;
 import com.example.linea_rapida.list_logic.UserAdapter;
 import com.example.linea_rapida.model.Role;
 import com.example.linea_rapida.model.User;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class HomeFragmentAdmin extends Fragment implements View.OnClickListener {
@@ -31,6 +34,8 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
     private ImageView button_back;
 
     private User user;
+
+    private FirebaseFirestore db;
 
     public HomeFragmentAdmin() {
         // Required empty public constructor
@@ -67,6 +72,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
         button_plant.setOnClickListener(this);
         button_field.setOnClickListener(this);
 
+        db = FirebaseFirestore.getInstance();
 
         button_add.setOnClickListener(
                 (v) -> {
@@ -83,6 +89,8 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
         users_list.setAdapter(adapter);
 
         //llamado a metodo para obtener los doctores
+
+        getData();
 
         return root;
     }
@@ -106,5 +114,18 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
                 adapter.onlyField();
                 break;
         }
+    }
+
+    private void getData() {
+        db.collection("users")
+                .get().addOnSuccessListener(
+                command -> {
+                    for (DocumentSnapshot doc : command.getDocuments()) {
+                        User user = doc.toObject(User.class);
+                        adapter.addUser(user);
+                    }
+                    adapter.onlyPlant();
+                }
+        );
     }
 }
