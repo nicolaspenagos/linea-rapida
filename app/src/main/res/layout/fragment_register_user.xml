@@ -11,7 +11,7 @@
         android:id="@+id/constraintLayout"
         style="@style/AppHeader"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:layout_marginBottom="33dp"
-            android:text="Registrar usuario"
+            android:text="REGISTRAR USUARIO"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,23 +43,25 @@
 
     <EditText
         android:id="@+id/signUpFullnameET"
+        style="@style/AppEditText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="#E4E4E4"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_background_2"
         android:ems="10"
         android:hint="Nombre completo"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <EditText
         android:id="@+id/signUpEmailET"
+        style="@style/AppEditText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="#E4E4E4"
+        android:background="@drawable/edit_text_background_2"
         android:ems="10"
         android:hint="Correo electrónico"
         android:inputType="textPersonName"
@@ -69,10 +71,11 @@
 
     <EditText
         android:id="@+id/signUpUsernameET"
+        style="@style/AppEditText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="#E4E4E4"
+        android:background="@drawable/edit_text_background_2"
         android:ems="10"
         android:hint="Usuario"
         android:inputType="textPersonName"
@@ -82,10 +85,11 @@
 
     <EditText
         android:id="@+id/signUpPasswordET"
+        style="@style/AppEditText"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="#E4E4E4"
+        android:background="@drawable/edit_text_background_2"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -95,10 +99,11 @@
 
     <Button
         android:id="@+id/signUpBtn"
+        style="@style/AppButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="#059BD3"
+        android:background="@drawable/button_background"
         android:text="Registrar"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
         android:layout_marginTop="16dp"
+        android:buttonTint="@color/light_blue"
         android:text="Planta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpPasswordET" />
@@ -121,6 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
         android:layout_marginTop="4dp"
+        android:buttonTint="@color/light_blue"
         android:text="Campo"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,6 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
         android:layout_marginTop="4dp"
+        android:buttonTint="@color/light_blue"
         android:text="Admin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpfieldRdoBtn" />
@@ -153,6 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="71dp"
+        android:buttonTint="@color/light_blue"
         android:text="Hombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -164,18 +173,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="86dp"
+        android:buttonTint="@color/light_blue"
         android:text="Mujer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpPasswordET" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:srcCompat="@drawable/iconfinder_2931147_user_face_avatar_account_head_icon_512px" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
