@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import com.example.linea_rapida.list_logic.UserAdapter;
 import com.example.linea_rapida.model.Role;
 import com.example.linea_rapida.model.User;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -90,7 +92,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
         layoutManager = new LinearLayoutManager(getContext());
         users_list.setLayoutManager(layoutManager);
 
-        adapter = new UserAdapter(user);
+        adapter = new UserAdapter(user, this);
         users_list.setAdapter(adapter);
 
         //llamado a metodo para obtener los doctores
@@ -122,6 +124,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
     }
 
     private void getData() {
+        adapter.getUsers().clear();
         db.collection("users")
                 .get().addOnSuccessListener(
                 command -> {
@@ -129,24 +132,35 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
                         User user = doc.toObject(User.class);
                         adapter.addUser(user);
                     }
-                    adapter.onlyPlant();
+
+                    if (button_plant.getCurrentTextColor() == -1){
+                        adapter.onlyPlant();
+                    }else{
+                        adapter.onlyField();
+                    }
+
                 }
         );
     }
 
-    /*
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-                                    ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getActivity().getMenuInflater();
-        inflater.inflate(R.menu.user_options, menu);
+    public void deleteUserFromFireStore(String userId){
+
+        db.collection("users").document(userId)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(">>>", "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(">>>", "Error deleting document", e);
+                    }
+                });
+
+        getData();
     }
 
-    @Override
-    public void registerForContextMenu(@NonNull @NotNull View view) {
-        super.registerForContextMenu(view);
-    }
-
-     */
 }

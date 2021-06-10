@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.linea_rapida.HomeFragmentAdmin;
 import com.example.linea_rapida.R;
 import com.example.linea_rapida.model.CaseTicket;
 import com.example.linea_rapida.model.Role;
@@ -26,8 +28,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserView>{
     private ArrayList<CaseTicket> tickets;
     private User user;
 
-    public UserAdapter(User user){
+    private HomeFragmentAdmin fragment;
+
+    public UserAdapter(User user, HomeFragmentAdmin fragment){
         this.user = user;
+        this.fragment = fragment;
+
+
         if (user.getRole().getRole() == Role.ADMIN_ROLE){
             users = new ArrayList<>();
             showlist = new ArrayList<>();
@@ -42,6 +49,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserView>{
     @Override
     public void onBindViewHolder(@NonNull @NotNull UserView holder, int position) {
         holder.getTextView_name().setText(showlist.get(position).getFullName());
+        holder.setUserId(showlist.get(position).getId());
+        holder.setFragment(fragment);
     }
 
 
@@ -97,4 +106,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserView>{
 
     }
 
+    public ArrayList<User> getUsers() {
+        return users;
+    }
 }

@@ -21,6 +21,8 @@ public class UserView extends RecyclerView.ViewHolder implements View.OnCreateCo
     private TextView textView_name;
     private ImageView image_available;
     private ImageView button_options;
+    private String userId;
+    private HomeFragmentAdmin fragment;
 
     public UserView(ConstraintLayout root) {
         super(root);
@@ -68,11 +70,37 @@ public class UserView extends RecyclerView.ViewHolder implements View.OnCreateCo
         this.button_options = button_options;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public HomeFragmentAdmin getFragment() {
+        return fragment;
+    }
+
+    public void setFragment(HomeFragmentAdmin fragment) {
+        this.fragment = fragment;
+    }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         menu.setHeaderTitle(textView_name.getText());
-        menu.add(0, v.getId(), 0, "Editar");//groupId, itemId, order, title
-        menu.add(0, v.getId(), 0, "Eliminar").setIcon(R.drawable.ic_baseline_delete_24);
+        menu.add(0, v.getId(), 0, "Editar").setOnMenuItemClickListener(
+                item -> {
+
+                    return true;
+                });
+
+        menu.add(0, v.getId(), 0, "Eliminar").setOnMenuItemClickListener(
+                item -> {
+                    fragment.deleteUserFromFireStore(userId);
+                    return true;
+                });
+
 
     }
 
