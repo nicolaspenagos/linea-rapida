@@ -32,25 +32,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserView>{
             users = new ArrayList<>();
             showlist = new ArrayList<>();
 
-            //Datos dummy
-            Role rol1 = new Role();
-            Role rol2 = new Role();
-            rol1.setRole(1);
-            rol2.setRole(2);
-
-            for (int i = 0; i < 5; i++) {
-                User u = new User("username", UUID.randomUUID().toString(), rol1,"planta " + i, "email", "M");
-                //users.add(u);
-
-                User w = new User("username", UUID.randomUUID().toString(), rol2,"campo " + i, "email", "M");
-                //users.add(w);
-            }
-
         }else if(user.getRole().getRole() == Role.DOCTOR_ROLE){
             tickets = new ArrayList<>();
         }
 
-        //onlyPlant();
     }
 
 

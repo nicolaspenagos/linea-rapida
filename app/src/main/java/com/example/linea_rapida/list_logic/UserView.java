@@ -1,15 +1,21 @@
 package com.example.linea_rapida.list_logic;
 
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.view.menu.ActionMenuItem;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.linea_rapida.HomeFragmentAdmin;
+import com.example.linea_rapida.MainActivity;
 import com.example.linea_rapida.R;
 
-public class UserView extends RecyclerView.ViewHolder{
+public class UserView extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
     private ConstraintLayout root;
     private TextView textView_name;
@@ -23,12 +29,11 @@ public class UserView extends RecyclerView.ViewHolder{
         textView_name = root.findViewById(R.id.textView_name);
         image_available = root.findViewById(R.id.image_available);
         button_options = root.findViewById(R.id.button_options);
+        HomeFragmentAdmin fragment = HomeFragmentAdmin.newInstance();
 
+        button_options.setLongClickable(false);
+        button_options.setOnCreateContextMenuListener(this);
 
-        button_options.setOnClickListener(
-                v -> {
-                    System.out.println("options");
-                });
     }
 
     public ConstraintLayout getRoot() {
@@ -61,6 +66,14 @@ public class UserView extends RecyclerView.ViewHolder{
 
     public void setButton_options(ImageButton button_options) {
         this.button_options = button_options;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        menu.setHeaderTitle(textView_name.getText());
+        menu.add(0, v.getId(), 0, "Editar");//groupId, itemId, order, title
+        menu.add(0, v.getId(), 0, "Eliminar").setIcon(R.drawable.ic_baseline_delete_24);
+
     }
 
 }

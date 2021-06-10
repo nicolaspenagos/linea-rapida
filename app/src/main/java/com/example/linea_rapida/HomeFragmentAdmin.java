@@ -3,12 +3,15 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -20,6 +23,8 @@ import com.example.linea_rapida.model.Role;
 import com.example.linea_rapida.model.User;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.jetbrains.annotations.NotNull;
 
 
 public class HomeFragmentAdmin extends Fragment implements View.OnClickListener {
@@ -128,4 +133,20 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
                 }
         );
     }
+
+    /*
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getActivity().getMenuInflater();
+        inflater.inflate(R.menu.user_options, menu);
+    }
+
+    @Override
+    public void registerForContextMenu(@NonNull @NotNull View view) {
+        super.registerForContextMenu(view);
+    }
+
+     */
 }
