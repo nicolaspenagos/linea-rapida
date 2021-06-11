@@ -91,7 +91,7 @@ public class UserView extends RecyclerView.ViewHolder implements View.OnCreateCo
         menu.setHeaderTitle(textView_name.getText());
         menu.add(0, v.getId(), 0, "Editar").setOnMenuItemClickListener(
                 item -> {
-
+                    fragment.editUserFromFireStore(userId);
                     return true;
                 });
 

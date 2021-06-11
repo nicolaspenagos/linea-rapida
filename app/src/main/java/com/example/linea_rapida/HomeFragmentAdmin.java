@@ -17,12 +17,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.linea_rapida.list_logic.UserAdapter;
 import com.example.linea_rapida.model.Role;
 import com.example.linea_rapida.model.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -41,6 +43,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
     private ImageView button_back;
 
     private User user;
+
 
     private FirebaseFirestore db;
 
@@ -161,6 +164,17 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
                 });
 
         getData();
+    }
+
+    public void editUserFromFireStore(String userId){
+
+        Bundle bundle = new Bundle();
+        bundle.putString("userId", userId);
+        RegisterUserFragment ruf = RegisterUserFragment.newInstance();
+        ruf.setArguments(bundle);
+
+        ((MainActivity)getActivity()).showFragment(ruf);
+
     }
 
 }
