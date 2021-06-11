@@ -1,20 +1,28 @@
 package com.example.linea_rapida.list_logic;
 
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.view.menu.ActionMenuItem;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.linea_rapida.HomeFragmentAdmin;
+import com.example.linea_rapida.MainActivity;
 import com.example.linea_rapida.R;
 
-public class UserView extends RecyclerView.ViewHolder{
+public class UserView extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
     private ConstraintLayout root;
     private TextView textView_name;
     private ImageView image_available;
     private ImageView button_options;
+    private String userId;
+    private HomeFragmentAdmin fragment;
 
     public UserView(ConstraintLayout root) {
         super(root);
@@ -23,12 +31,11 @@ public class UserView extends RecyclerView.ViewHolder{
         textView_name = root.findViewById(R.id.textView_name);
         image_available = root.findViewById(R.id.image_available);
         button_options = root.findViewById(R.id.button_options);
+        HomeFragmentAdmin fragment = HomeFragmentAdmin.newInstance();
 
+        button_options.setLongClickable(false);
+        button_options.setOnCreateContextMenuListener(this);
 
-        button_options.setOnClickListener(
-                v -> {
-                    System.out.println("options");
-                });
     }
 
     public ConstraintLayout getRoot() {
@@ -61,6 +68,40 @@ public class UserView extends RecyclerView.ViewHolder{
 
     public void setButton_options(ImageButton button_options) {
         this.button_options = button_options;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public HomeFragmentAdmin getFragment() {
+        return fragment;
+    }
+
+    public void setFragment(HomeFragmentAdmin fragment) {
+        this.fragment = fragment;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        menu.setHeaderTitle(textView_name.getText());
+        menu.add(0, v.getId(), 0, "Editar").setOnMenuItemClickListener(
+                item -> {
+                    fragment.editUserFromFireStore(userId);
+                    return true;
+                });
+
+        menu.add(0, v.getId(), 0, "Eliminar").setOnMenuItemClickListener(
+                item -> {
+                    fragment.deleteUserFromFireStore(userId);
+                    return true;
+                });
+
+
     }
 
 }

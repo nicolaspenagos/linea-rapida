@@ -28,7 +28,7 @@
             app:srcCompat="@drawable/go_back_arrow" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/headerText"
             style="@style/AppHeaderTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

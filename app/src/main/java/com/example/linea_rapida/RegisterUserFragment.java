@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.linea_rapida.model.Role;
 import com.example.linea_rapida.model.User;
@@ -27,18 +28,21 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
     private FirebaseFirestore db;
 
 
-   private EditText fullnameET;
-   private EditText emailET;
-   private EditText usernameET;
-   private EditText passwordET;
-   private RadioButton plantRdoBtn;
-   private RadioButton fieldRdoBtn;
-   private RadioButton adminRdoBtn;
-   private RadioButton manRdoBtn;
-   private RadioButton womanRdoBtn;
-   private Button signUpBtn;
-   private ImageView backBtn;
-   private TextView signUpErrorTv;
+    private EditText fullnameET;
+    private EditText emailET;
+    private EditText usernameET;
+    private EditText passwordET;
+    private RadioButton plantRdoBtn;
+    private RadioButton fieldRdoBtn;
+    private RadioButton adminRdoBtn;
+    private RadioButton manRdoBtn;
+    private RadioButton womanRdoBtn;
+    private Button signUpBtn;
+    private ImageView backBtn;
+    private TextView signUpErrorTv;
+    private TextView headerText;
+
+    private String userId_to_edit;
 
 
     public RegisterUserFragment() {
@@ -57,7 +61,9 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
+            userId_to_edit = getArguments().getString("userId");
+        }else{
+            userId_to_edit = null;
         }
     }
 
@@ -83,6 +89,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         signUpBtn = root.findViewById(R.id.signUpBtn);
         signUpErrorTv = root.findViewById(R.id.signUpErrorTV);
         backBtn = root.findViewById(R.id.button_back2);
+        headerText = root.findViewById(R.id.headerText);
 
         backBtn.setOnClickListener(
                 v -> {
@@ -96,6 +103,10 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         manRdoBtn.setOnClickListener(this);
         womanRdoBtn.setOnClickListener(this);
 
+        if(userId_to_edit != null){
+            changeToEdit();
+        }
+
         return root;
 
     }
@@ -105,7 +116,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(
 
-                     task -> {
+                        task -> {
                             if(task.isSuccessful()){
 
                                 String id = auth.getCurrentUser().getUid();
@@ -215,8 +226,14 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                 boolean woman = womanRdoBtn.isChecked();
 
                 if(checkSignUpData(fullname, email, username, password, plant, field, admin, man, woman)) {
-                    signUp(fullname, email, username, password);
-                   // ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+
+                    if (userId_to_edit == null){
+                        signUp(fullname, email, username, password);
+                    }else {
+                        createUser(fullname, email, username, userId_to_edit);
+                        ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+                    }
+                    // ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
                 }
 
                 break;
@@ -243,5 +260,44 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                 manRdoBtn.setChecked(false);
                 break;
         }
+    }
+
+    private void changeToEdit(){
+
+        db.collection("users").document(userId_to_edit).get().addOnCompleteListener(
+                command -> {
+                    try {
+                        User u = command.getResult().toObject(User.class);
+
+                        headerText.setText("Editar usuario");
+                        fullnameET.setText(u.getFullName());
+                        emailET.setText(u.getEmail());
+                        emailET.setEnabled(false);
+                        usernameET.setText(u.getUsername());
+                        passwordET.setText("password");
+                        passwordET.setEnabled(false);
+                        signUpBtn.setText("Guardar");
+
+                        if (u.getGender().equals("M")){
+                            manRdoBtn.setChecked(true);
+                        }else {
+                            womanRdoBtn.setChecked(true);
+                        }
+
+                        if (u.getRole().getRole() == 0){
+                            adminRdoBtn.setChecked(true);
+                        }else if(u.getRole().getRole() == 1){
+                            plantRdoBtn.setChecked(true);
+                        }else {
+                            fieldRdoBtn.setChecked(true);
+                        }
+
+                    }catch (NullPointerException e){
+                        userId_to_edit = null;
+                        Toast.makeText(getContext(), "Error getting user", Toast.LENGTH_SHORT).show();
+                        ((MainActivity)getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+                    }
+
+                });
     }
 }
