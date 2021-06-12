@@ -16,6 +16,9 @@ import android.widget.TextView;
 import com.example.linea_rapida.model.CaseTicket;
 import com.example.linea_rapida.placeholder.PlaceholderContent.PlaceholderItem;
 import com.example.linea_rapida.databinding.FragmentTabCaseBinding;
+import com.example.linea_rapida.util.Constants;
+import com.example.linea_rapida.util.HTTPSWebUtilDomi;
+import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
@@ -164,7 +167,50 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                 });
 
                 changeStatusBtn.setOnClickListener((view2)->{
-                    dialog.dismiss();
+                    AlertDialog.Builder dialogbuilder = new AlertDialog.Builder(view2.getContext());
+                    final View dialog_status = view2.inflate(view2.getContext(), R.layout.dialog_status_change, null);
+
+                    TextView textView = dialog_status.findViewById(R.id.textView12);
+                    Button setStatus2Btn = dialog_status.findViewById(R.id.setStatus2Btn);
+                    Button setStatus3Btn = dialog_status.findViewById(R.id.setStatus3Btn);
+
+                    dialogbuilder.setView(dialog_status);
+                    Dialog statusDialog = dialogbuilder.create();
+
+                    setStatus2Btn.setOnClickListener(view1->{
+                        mItem.setStatus(CaseTicket.STATUS_IN_PROGRESS);
+                        Gson gson = new Gson();
+                        String json = gson.toJson(mItem);
+                        HTTPSWebUtilDomi utilDomi = new HTTPSWebUtilDomi();
+                        new Thread(()->{
+                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getId()+".json",json);
+                        }).start();
+                        //listview
+                        mImageViewStatus.setImageResource(R.drawable.orange_dot);
+                        mContentView.setText("Estado: En proceso");
+                        //case fragment
+                        textViewStatusValue.setText("En proceso");
+                        statusDialog.dismiss();
+                    });
+
+                    setStatus3Btn.setOnClickListener(view1->{
+                        mItem.setStatus(CaseTicket.STATUS_FINISHED);
+                        Gson gson = new Gson();
+                        String json = gson.toJson(mItem);
+                        HTTPSWebUtilDomi utilDomi = new HTTPSWebUtilDomi();
+                        new Thread(()->{
+                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getId()+".json",json);
+                        }).start();
+                        //listview
+                        mImageViewStatus.setImageResource(R.drawable.red_dor);
+                        mContentView.setText("Estado: Finalizado");
+                        //fragment case
+                        textViewStatusValue.setText("Finalizado");
+                        statusDialog.dismiss();
+                    });
+
+                    statusDialog.show();
+
                 });
 
                 dialog.show();

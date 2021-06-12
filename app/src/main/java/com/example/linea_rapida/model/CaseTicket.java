@@ -15,12 +15,13 @@ public class CaseTicket {
     private String pacientName;
     private long number;
     private long pacientAge;
+    private String id;
 
 
     public CaseTicket() {
     }
 
-    public CaseTicket(long date, String username, String userid, String location, String body, String status, String pacientName, long number, long pacientAge) {
+    public CaseTicket(long date, String username, String userid, String location, String body, String status, String pacientName, long number, long pacientAge, String id) {
         this.date = date;
         this.username = username;
         this.userid = userid;
@@ -30,6 +31,7 @@ public class CaseTicket {
         this.pacientName = pacientName;
         this.number = number;
         this.pacientAge = pacientAge;
+        this.id = id;
     }
 
 
@@ -103,5 +105,13 @@ public class CaseTicket {
 
     public void setPacientAge(long pacientAge) {
         this.pacientAge = pacientAge;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
