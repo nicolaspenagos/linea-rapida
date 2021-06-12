@@ -34,6 +34,7 @@ public class TabCaseFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
 
+
     private static ArrayList<CaseTicket> caseTickets = new ArrayList<>();
 
     /**
@@ -62,6 +63,7 @@ public class TabCaseFragment extends Fragment {
         }
 
         getCaseList();
+
     }
 
 
@@ -88,6 +90,7 @@ public class TabCaseFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab_case_list, container, false);
 
+
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -101,4 +104,5 @@ public class TabCaseFragment extends Fragment {
         }
         return view;
     }
+
 }

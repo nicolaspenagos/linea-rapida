@@ -3,188 +3,404 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/textViewDiagnosticValue"
-        android:layout_width="340dp"
-        android:layout_height="175dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="value"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Localización:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Fecha:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textViewDateValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Value"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="userid:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textViewUserIdValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Value"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="40dp"
-        android:text="Caso #: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fontFamily="@font/roboto" />
-
-    <TextView
-        android:id="@+id/textViewNumberVal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Value"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="username: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textViewUsernameValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Value"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Estado:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <TextView
-        android:id="@+id/textViewStatusValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="Value"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toTopOf="@+id/textView17" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/roboto"
-        android:text="Sintomas:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-    <TextView
-        android:id="@+id/textViewSymptomValue"
-        android:layout_width="340dp"
-        android:layout_height="175dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="value"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/roboto"
-        android:text="Diagnostico"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSymptomValue" />
+    android:layout_height="match_parent"
+    android:background="@drawable/button_background_2">
 
     <Button
-        android:id="@+id/changeStatusBtn"
-        android:layout_width="87dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/roboto"
-        android:text="Cambiar"
-        app:layout_constraintBottom_toBottomOf="@+id/textView17"
-        app:layout_constraintStart_toEndOf="@+id/textViewStatusValue"
-        app:layout_constraintTop_toTopOf="@+id/textView17" />
+        android:id="@+id/dismissBtn"
+        android:layout_width="47dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/go_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/locationBtn"
-        android:layout_width="51dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="16dp"
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto"
-        android:text="Ir"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15" />
+        android:text="Gestión de Caso"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/verticalLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:weightSum="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="horizontal"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/roboto"
+                android:text="Caso #: " />
+
+            <TextView
+                android:id="@+id/textViewNumberVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Value" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="horizontal"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/roboto"
+                android:text="Fecha:" />
+
+            <TextView
+                android:id="@+id/textViewDateValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutPacientName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="horizontal"
+            android:paddingStart="2px"
+            android:paddingLeft="8px"
+            android:paddingTop="2px"
+            android:paddingEnd="8px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_weight="0"
+                android:text="Nombre de paciente:" />
+
+            <TextView
+                android:id="@+id/textViewPacientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="0"
+                android:text="Value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutPacientAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2px"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="horizontal"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_weight="0"
+                android:text="Edad de paciente:" />
+
+            <TextView
+                android:id="@+id/textViewPacientAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="0"
+                android:text="Value" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="horizontal"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/roboto"
+                android:text="Usuario que reporta: " />
+
+            <TextView
+                android:id="@+id/textViewUsernameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Value" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutUserId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="horizontal"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/roboto"
+                android:text="ID de usuario que reporta:" />
+
+            <TextView
+                android:id="@+id/textViewUserIdValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Value" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="horizontal"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0px"
+                android:fontFamily="@font/roboto"
+                android:text="Estado:" />
+
+            <TextView
+                android:id="@+id/textViewStatusValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/roboto"
+                android:text="Value" />
+
+            <Button
+                android:id="@+id/changeStatusBtn"
+                android:layout_width="87dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/roboto"
+                android:text="Cambiar"
+                android:textColor="@color/background_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="horizontal"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0px"
+                android:fontFamily="@font/roboto"
+                android:text="Localización:" />
+
+            <Button
+                android:id="@+id/locationBtn"
+                android:layout_width="51dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/roboto"
+                android:text="Ir"
+                android:textColor="@color/background_white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSymptoms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="vertical"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0px"
+                android:fontFamily="@font/roboto"
+                android:text="Sintomas:" />
+
+            <TextView
+                android:id="@+id/textViewSymptomValue"
+                android:layout_width="370dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0px"
+                android:fontFamily="@font/roboto"
+                android:text="value" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDiagnostics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_weight="0"
+            android:background="@drawable/button_background_2"
+            android:orientation="vertical"
+            android:paddingStart="2px"
+            android:paddingLeft="2px"
+            android:paddingTop="8px"
+            android:paddingEnd="2px"
+            android:paddingRight="2px"
+            android:paddingBottom="8px">
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0px"
+                android:fontFamily="@font/roboto"
+                android:text="Diagnostico" />
+
+            <TextView
+                android:id="@+id/textViewDiagnosticValue"
+                android:layout_width="370dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="0px"
+                android:fontFamily="@font/roboto"
+                android:text="value" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser fbUser = auth.getCurrentUser();
 
 
-
         if(fbUser == null){
             goToLogin();
         }else{
@@ -98,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                                     break;
                                 case Role.DOCTOR_ROLE:
                                     homeFragment = HomeFragmentCases.newInstance();
+                                    Intent x = new Intent(this, CaseManagementActivity.class);
+                                    startActivity(x);
                                     break;
 
                             }
@@ -107,8 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
                             navigator.setSelectedItemId(R.id.homeItem);
                             showFragment(homeFragment);
-
-
 
 
                         }else{

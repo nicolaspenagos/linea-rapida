@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.linea_rapida.ui.main.SectionsPagerAdapter;
 import com.example.linea_rapida.databinding.ActivityCaseManagementBinding;
@@ -32,7 +33,15 @@ public class CaseManagementActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
+
+        ImageView backArrow = binding.backArrowIV;
+
+        backArrow.setOnClickListener(view->{
+            finish();
+        });
+
         FloatingActionButton fab = binding.fab;
+
 
 
         fab.setOnClickListener(new View.OnClickListener() {

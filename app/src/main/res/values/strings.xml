@@ -7,6 +7,7 @@
     <string name="forgot_password">¿Olvidaste tu contraseña?</string>
     <string name="get_help">Obtén ayuda</string>
     <string name="title_activity_case_management">CaseManagementActivity</string>
+    <string name="title_case_management_app">Gestión de Casos</string>
     <string name="tab_text_1">Lista de Casos</string>
     <string name="tab_text_2">Mapa</string>
     <string name="forgot_password_header">CONTRASEÑA OLVIDADA</string>

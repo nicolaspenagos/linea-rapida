@@ -2,26 +2,36 @@ package com.example.linea_rapida.model;
 
 public class CaseTicket {
 
+    public static final String STATUS_STARTED = "1";
+    public static final String STATUS_IN_PROGRESS = "2";
+    public static final String STATUS_FINISHED = "3";
+
     private long date;
     private String username;
     private String userid;
     private String location;
     private String body;
     private String status;
+    private String pacientName;
     private long number;
+    private long pacientAge;
+
 
     public CaseTicket() {
     }
 
-    public CaseTicket(long date, String username, String userid, String location, String body, String status, long number) {
+    public CaseTicket(long date, String username, String userid, String location, String body, String status, String pacientName, long number, long pacientAge) {
         this.date = date;
         this.username = username;
         this.userid = userid;
         this.location = location;
         this.body = body;
         this.status = status;
+        this.pacientName = pacientName;
         this.number = number;
+        this.pacientAge = pacientAge;
     }
+
 
     public long getDate() {
         return date;
@@ -77,5 +87,21 @@ public class CaseTicket {
 
     public void setNumber(long number) {
         this.number = number;
+    }
+
+    public String getPacientName() {
+        return pacientName;
+    }
+
+    public void setPacientName(String pacientName) {
+        this.pacientName = pacientName;
+    }
+
+    public long getPacientAge() {
+        return pacientAge;
+    }
+
+    public void setPacientAge(long pacientAge) {
+        this.pacientAge = pacientAge;
     }
 }
