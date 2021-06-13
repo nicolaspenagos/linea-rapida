@@ -35,7 +35,7 @@ public class TabCaseFragment extends Fragment {
     private int mColumnCount = 1;
 
 
-    private static ArrayList<CaseTicket> caseTickets = new ArrayList<>();
+    public static ArrayList<CaseTicket> caseTickets = new ArrayList<>();
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -61,9 +61,7 @@ public class TabCaseFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-
         getCaseList();
-
     }
 
 

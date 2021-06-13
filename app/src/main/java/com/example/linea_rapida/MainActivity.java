@@ -97,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
                                     break;
                                 case Role.DOCTOR_ROLE:
                                     homeFragment = HomeFragmentCases.newInstance();
-                                    Intent x = new Intent(this, CaseManagementActivity.class);
-                                    startActivity(x);
                                     break;
 
                             }

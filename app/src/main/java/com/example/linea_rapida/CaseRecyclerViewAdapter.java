@@ -57,7 +57,7 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                 break;
             case CaseTicket.STATUS_IN_PROGRESS:
                 holder.mImageViewStatus.setImageResource(R.drawable.orange_dot);
-                holder.mContentView.setText("Estado: En progreso");
+                holder.mContentView.setText("Estado: En proceso");
                 break;
             case CaseTicket.STATUS_FINISHED:
                 holder.mImageViewStatus.setImageResource(R.drawable.red_dor);

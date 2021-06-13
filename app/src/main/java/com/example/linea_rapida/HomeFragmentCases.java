@@ -1,5 +1,6 @@
 package com.example.linea_rapida;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-public class HomeFragmentCases extends Fragment {
+public class HomeFragmentCases extends Fragment implements View.OnClickListener {
 
 
 
@@ -39,6 +41,19 @@ public class HomeFragmentCases extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_cases, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_cases, container, false);
+        Button goToCasesBtn = view.findViewById(R.id.goToCasesBtn);
+        goToCasesBtn.setOnClickListener(this);
+        return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.goToCasesBtn:
+                Intent x = new Intent(getActivity(), CaseManagementActivity.class);
+                startActivity(x);
+                break;
+        }
     }
 }

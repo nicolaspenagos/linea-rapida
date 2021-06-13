@@ -2,6 +2,9 @@ package com.example.linea_rapida;
 
 import android.os.Bundle;
 
+import com.example.linea_rapida.model.CaseTicket;
+import com.example.linea_rapida.util.Constants;
+import com.example.linea_rapida.util.HTTPSWebUtilDomi;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -16,6 +19,11 @@ import android.widget.ImageView;
 
 import com.example.linea_rapida.ui.main.SectionsPagerAdapter;
 import com.example.linea_rapida.databinding.ActivityCaseManagementBinding;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 
 public class CaseManagementActivity extends AppCompatActivity {
 
@@ -36,20 +44,29 @@ public class CaseManagementActivity extends AppCompatActivity {
 
         ImageView backArrow = binding.backArrowIV;
 
+        ImageView syncData = binding.syncDataBtn;
+
         backArrow.setOnClickListener(view->{
             finish();
         });
 
-        FloatingActionButton fab = binding.fab;
+        syncData.setOnClickListener(v -> {
+            TabCaseFragment.caseTickets.clear();
+            HTTPSWebUtilDomi httpsWebUtilDomi = new HTTPSWebUtilDomi();
+            new Thread(() ->{
+                String res = httpsWebUtilDomi.GETrequest(Constants.FIREBASE_BASEURL + "cases.json");
 
+                Type type = new TypeToken<HashMap<String, CaseTicket>>(){}.getType();
+                Gson gson = new Gson();
 
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+                HashMap<String, CaseTicket> caseTicketHashMap = gson.fromJson(res, type);
+                caseTicketHashMap.forEach(
+                        (key,value)->{
+                            TabCaseFragment.caseTickets.add(value);
+                        }
+                );
+            }).start();
+            this.recreate();
         });
     }
 }

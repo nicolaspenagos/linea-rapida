@@ -6,9 +6,26 @@
     tools:context=".HomeFragmentCases">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Cases" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Cases"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/goToCasesBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/button_background"
+            android:text="Gestionar Casos"
+            android:textColor="@color/background_white" />
+    </LinearLayout>
 
 </FrameLayout>
