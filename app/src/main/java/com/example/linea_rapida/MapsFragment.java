@@ -9,22 +9,35 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsFragment extends Fragment {
+
+import java.text.DecimalFormat;
+import java.util.Locale;
+
+public class MapsFragment extends Fragment implements LocationListener {
+
+    public final static double CENTRAL_HOSPITAL_LAT = 3.372741;
+    public final static double CENTRAL_HOSPITAL_LONG = -76.526244;
 
     private GoogleMap map;
     private LocationManager manager;
@@ -32,6 +45,10 @@ public class MapsFragment extends Fragment {
     private boolean availableNetwork;
     private LatLng openHere;
     private String provider;
+    private Geocoder geocoder;
+
+
+    private TextView distanceTV;
 
     @SuppressLint("MissingPermission")
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
@@ -48,11 +65,24 @@ public class MapsFragment extends Fragment {
         @Override
         public void onMapReady(GoogleMap googleMap) {
 
+
+
+
+            LatLng hospital = new LatLng(CENTRAL_HOSPITAL_LAT, CENTRAL_HOSPITAL_LONG);
+
             map = googleMap;
             map.setMyLocationEnabled(true);
+
+            Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.marker);
+            Bitmap sacaleBitmap = Bitmap.createScaledBitmap(
+                    image, image.getWidth()/5, image.getHeight()/5, true
+            );
+
+            map.addMarker(new MarkerOptions()
+                    .position(hospital).title("Clínica Fundación Valle del Lili")
+                    .icon(BitmapDescriptorFactory.fromBitmap(sacaleBitmap)));
+
             setInitialPos();
-
-
 
         }
     };
@@ -80,6 +110,8 @@ public class MapsFragment extends Fragment {
 
 
         Location location = manager.getLastKnownLocation(provider);
+        updateDistance(location);
+        manager.requestLocationUpdates(provider, 1000, 1, (LocationListener) this);
 
         if(openHere!=null){
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(openHere, 16));
@@ -101,7 +133,12 @@ public class MapsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_maps, container, false);
+
+        geocoder = new Geocoder(getContext(), Locale.getDefault());
+
+        View root = inflater.inflate(R.layout.fragment_maps, container, false);
+        distanceTV = root.findViewById(R.id.mapDistance);
+        return root;
     }
 
     @Override
@@ -116,4 +153,38 @@ public class MapsFragment extends Fragment {
         manager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
 
     }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+
+        updateDistance(location);
+    }
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+
+    }
+
+    public void updateDistance(Location location){
+
+        float[] results = new float[1];
+        Location.distanceBetween(location.getLatitude(), location.getLongitude(), CENTRAL_HOSPITAL_LAT, CENTRAL_HOSPITAL_LONG, results);
+        float distanceInMeters = results[0];
+
+        if(distanceInMeters>1000){
+
+            float distanceInKm = distanceInMeters/1000;
+            DecimalFormat df = new DecimalFormat("#.0");
+            distanceTV.setText(""+df.format(distanceInKm)+" km");
+
+        }else{
+            distanceTV.setText(""+Math.round(distanceInMeters)+" m");
+        }
+
+    };
 }
