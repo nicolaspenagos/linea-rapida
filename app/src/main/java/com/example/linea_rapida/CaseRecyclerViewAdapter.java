@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.linea_rapida.placeholder.PlaceholderContent.PlaceholderItem;
 import com.example.linea_rapida.databinding.FragmentTabCaseBinding;
 import com.example.linea_rapida.util.Constants;
 import com.example.linea_rapida.util.HTTPSWebUtilDomi;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
@@ -163,7 +165,10 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                 });
 
                 locationBtn.setOnClickListener((view1)->{
-
+                    String[] loc = mItem.getLocation().split(",");
+                    LatLng latLng = new LatLng(Double.parseDouble(loc[0]),Double.parseDouble(loc[1]));
+                    TabMapsFragment.focusMap(latLng);
+                    dialog.dismiss();
                 });
 
                 changeStatusBtn.setOnClickListener((view2)->{

@@ -42,6 +42,7 @@ public class CaseManagementActivity extends AppCompatActivity {
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
 
+
         ImageView backArrow = binding.backArrowIV;
 
         ImageView syncData = binding.syncDataBtn;

@@ -18,6 +18,15 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class TabMapsFragment extends Fragment {
 
+    static GoogleMap map;
+
+    public static void focusMap(LatLng latLng) {
+        if (latLng != null) {
+            map.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+            map.animateCamera(CameraUpdateFactory.zoomTo(14));
+        }
+    }
+
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
@@ -31,9 +40,12 @@ public class TabMapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            map = googleMap;
+            TabCaseFragment.caseTickets.forEach(e->{
+                String[] loc = e.getLocation().split(",");
+                LatLng latLng = new LatLng(Double.parseDouble(loc[0]),Double.parseDouble(loc[1]));
+                googleMap.addMarker(new MarkerOptions().position(latLng).title(e.getPacientName()));
+            });
         }
     };
 

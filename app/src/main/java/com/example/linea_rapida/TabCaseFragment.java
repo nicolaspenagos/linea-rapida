@@ -17,6 +17,7 @@ import com.example.linea_rapida.model.CaseTicket;
 import com.example.linea_rapida.placeholder.PlaceholderContent;
 import com.example.linea_rapida.util.Constants;
 import com.example.linea_rapida.util.HTTPSWebUtilDomi;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
