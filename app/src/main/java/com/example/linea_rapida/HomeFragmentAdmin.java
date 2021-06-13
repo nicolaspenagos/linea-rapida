@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.linea_rapida.list_logic.UserAdapter;
@@ -41,6 +42,7 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
     private Button button_field;
     private ImageView button_add;
     private ImageView button_back;
+    private TextView loadingET;
 
     private User user;
 
@@ -78,9 +80,13 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
         button_field = root.findViewById(R.id.button_field);
         button_back = root.findViewById(R.id.button_back2);
         button_add = root.findViewById(R.id.button_add);
+        loadingET = root.findViewById(R.id.adminHomeLoadingTV);
 
         button_plant.setOnClickListener(this);
         button_field.setOnClickListener(this);
+
+        users_list.setVisibility(View.INVISIBLE);
+        loadingET.setVisibility(View.VISIBLE);
 
         db = FirebaseFirestore.getInstance();
 
@@ -135,6 +141,9 @@ public class HomeFragmentAdmin extends Fragment implements View.OnClickListener 
                         User user = doc.toObject(User.class);
                         adapter.addUser(user);
                     }
+
+                    users_list.setVisibility(View.VISIBLE);
+                    loadingET.setVisibility(View.INVISIBLE);
 
                     if (button_plant.getCurrentTextColor() == -1){
                         adapter.onlyPlant();
