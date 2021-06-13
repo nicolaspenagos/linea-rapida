@@ -75,7 +75,7 @@ public class MapsFragment extends Fragment implements LocationListener {
 
             Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.marker);
             Bitmap sacaleBitmap = Bitmap.createScaledBitmap(
-                    image, image.getWidth()/5, image.getHeight()/5, true
+                    image, image.getWidth()/6, image.getHeight()/6, true
             );
 
             map.addMarker(new MarkerOptions()
