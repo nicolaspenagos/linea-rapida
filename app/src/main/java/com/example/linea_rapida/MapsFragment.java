@@ -2,9 +2,17 @@ package com.example.linea_rapida;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +26,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsFragment extends Fragment {
 
+    private GoogleMap map;
+    private LocationManager manager;
+    private boolean availableGPS;
+    private boolean availableNetwork;
+    private LatLng openHere;
+    private String provider;
+
+    @SuppressLint("MissingPermission")
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
@@ -31,11 +47,54 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+            map = googleMap;
+            map.setMyLocationEnabled(true);
+            setInitialPos();
+
+
+
         }
     };
+
+    @SuppressLint("MissingPermission")
+    public void setInitialPos(){
+
+
+        //Determina si el NETWORK_PROVIDER esta disponible:
+        try {
+            availableNetwork = manager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+            provider = LocationManager.NETWORK_PROVIDER;
+        } catch (Exception ex) {
+            Log.e(">>>>","Error obtaining NETWORK_PROVIDER.");
+        }
+
+
+        //Determina si el GPS_PROVIDER esta disponible:
+        try {
+            availableGPS = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            provider = LocationManager.GPS_PROVIDER;
+        } catch (Exception ex) {
+            Log.e(">>>>","Error obtaining GPS_PROVIDER.");
+        }
+
+
+        Location location = manager.getLastKnownLocation(provider);
+
+        if(openHere!=null){
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(openHere, 16));
+            openHere = null;
+        }else{
+            if(location!=null){
+
+                LatLng myPos = new LatLng(location.getLatitude(), location.getLongitude());
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(myPos, 16));
+
+            }
+        }
+
+
+    }
 
     @Nullable
     @Override
@@ -53,5 +112,8 @@ public class MapsFragment extends Fragment {
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
+
+        manager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
+
     }
 }
