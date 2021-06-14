@@ -32,6 +32,14 @@
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textSize">16dp</item>
     </style>
+    <!-- EDIT TEXT -->
+    <style name="ReportEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">16dp</item>
+    </style>
     <!-- BUTTON -->
     <style name="AppButton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/button_background</item>
