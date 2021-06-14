@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.linea_rapida.connect.Constant;
 import com.example.linea_rapida.model.CaseTicket;
+import com.example.linea_rapida.model.FCMMessage;
 import com.example.linea_rapida.util.Constants;
 import com.example.linea_rapida.util.HTTPSWebUtilDomi;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +28,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 
 public class HomeFragmentReport extends Fragment implements View.OnClickListener {
@@ -104,7 +106,9 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
 
                 new Thread(
                         ()->{
-                            https.PUTrequest(Constants.FIREBASE_BASEURL+ "cases/" + caseTicket.getPatientId()+".json",json);
+                            https.POSTrequest(Constants.FIREBASE_BASEURL+ "cases/" + caseTicket.getPatientId()+".json",json);
+                            //notificación
+                            https.POSTtoFCM(gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: "+caseTicket.getNumber()+" Iniciado!")));
                         }
                 ).start();
 
