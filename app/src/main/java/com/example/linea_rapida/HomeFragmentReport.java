@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.linea_rapida.connect.Constant;
 import com.example.linea_rapida.model.CaseTicket;
 import com.example.linea_rapida.model.FCMMessage;
+import com.example.linea_rapida.model.FCMWrapper;
 import com.example.linea_rapida.util.Constants;
 import com.example.linea_rapida.util.HTTPSWebUtilDomi;
 import com.google.firebase.database.DatabaseReference;
@@ -105,7 +106,8 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
 
                 HTTPSWebUtilDomi https = new HTTPSWebUtilDomi();
 
-                String jsonNotification = gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + caseTicket.getNumber() + " Iniciado!"));
+                FCMWrapper wrapper = new FCMWrapper("/topics/news",new FCMMessage(UUID.randomUUID().toString(), "Caso: " + caseTicket.getNumber() + " Iniciado!"));
+                String jsonNotification = gson.toJson(wrapper);
                 new Thread(
                         ()->{
                             https.PUTrequest(Constants.FIREBASE_BASEURL+ "cases/" + caseId+".json",json);
