@@ -115,6 +115,42 @@ public class HTTPSWebUtilDomi {
         }
     }
 
+    public String POSTtoFCM(String json) {
+        try {
+            URL page = new URL("https://fcm.googleapis.com/fcm/send");
+            HttpsURLConnection connection = (HttpsURLConnection) page.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Authorization", "key="+Constants.CLOUD_MESSAGING_SERVER_KEY);
+//            connection.setRequestProperty("accept", "application/json");
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+
+            OutputStream os = connection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+
+            writer.write(json);
+            writer.flush();
+
+            InputStream is = connection.getInputStream();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+            byte[] buffer = new byte[4096];
+            int bytesRead;
+            while ((bytesRead = is.read(buffer)) != -1) {
+                baos.write(buffer, 0, bytesRead);
+            }
+            is.close();
+            baos.close();
+            os.close();
+            connection.disconnect();
+            return new String(baos.toByteArray(), "UTF-8");
+        }catch (IOException ex){
+            ex.printStackTrace();
+            return "";
+        }
+    }
+
     public String PUTrequest(String url, String json) {
         try {
             URL page = new URL(url);

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.linea_rapida.model.CaseTicket;
+import com.example.linea_rapida.model.FCMMessage;
 import com.example.linea_rapida.placeholder.PlaceholderContent.PlaceholderItem;
 import com.example.linea_rapida.databinding.FragmentTabCaseBinding;
 import com.example.linea_rapida.util.Constants;
@@ -25,6 +26,7 @@ import com.google.gson.Gson;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
@@ -195,6 +197,9 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                         mContentView.setText("Estado: En proceso");
                         //case fragment
                         textViewStatusValue.setText("En proceso");
+                        new Thread(()->{
+                            utilDomi.POSTtoFCM(gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber()+", Actualizado!")));
+                        }).start();
                         statusDialog.dismiss();
                     });
 
@@ -211,6 +216,9 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                         mContentView.setText("Estado: Finalizado");
                         //fragment case
                         textViewStatusValue.setText("Finalizado");
+                        new Thread(()->{
+                            utilDomi.POSTtoFCM(gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber()+", Actualizado!")));
+                        }).start();
                         statusDialog.dismiss();
                     });
 
