@@ -190,15 +190,16 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                         String json = gson.toJson(mItem);
                         HTTPSWebUtilDomi utilDomi = new HTTPSWebUtilDomi();
                         new Thread(()->{
-                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getPatientId()+".json",json);
+                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getId()+".json",json);
                         }).start();
                         //listview
                         mImageViewStatus.setImageResource(R.drawable.orange_dot);
                         mContentView.setText("Estado: En proceso");
                         //case fragment
                         textViewStatusValue.setText("En proceso");
+                        String jsonMsg = gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber() + ", Actualizado!"));
                         new Thread(()->{
-                            utilDomi.POSTtoFCM(gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber()+", Actualizado!")));
+                            utilDomi.POSTtoFCM(jsonMsg);
                         }).start();
                         statusDialog.dismiss();
                     });
@@ -209,15 +210,16 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                         String json = gson.toJson(mItem);
                         HTTPSWebUtilDomi utilDomi = new HTTPSWebUtilDomi();
                         new Thread(()->{
-                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getPatientId()+".json",json);
+                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getId()+".json",json);
                         }).start();
                         //listview
                         mImageViewStatus.setImageResource(R.drawable.red_dor);
                         mContentView.setText("Estado: Finalizado");
                         //fragment case
                         textViewStatusValue.setText("Finalizado");
+                        String jsonMsg = gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber() + ", Actualizado!"));
                         new Thread(()->{
-                            utilDomi.POSTtoFCM(gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber()+", Actualizado!")));
+                            utilDomi.POSTtoFCM(jsonMsg);
                         }).start();
                         statusDialog.dismiss();
                     });

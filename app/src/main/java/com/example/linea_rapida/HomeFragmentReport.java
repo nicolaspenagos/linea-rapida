@@ -91,24 +91,26 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
                 String actualDate = actualDateET.getText().toString();
 //long date, String username, String userid, String location, String body, String status, long number
 
-                String body = "Sintomas;";
+                String body = "Sintomas;Diagnostico";
                 String username = "ana";
                 String userid = "12";
                 String location = "3.454563, 5.23534";
                 String status = "1";
                 long number = 3;
+                String caseId = UUID.randomUUID().toString();
 
-                CaseTicket caseTicket = new CaseTicket(body, actualDate, id, username, userid, location, status, number, name, age);
+                CaseTicket caseTicket = new CaseTicket(body, actualDate, id, username, userid, location, status, number, name, age,caseId);
                 Gson gson = new Gson();
                 String json = gson.toJson(caseTicket);
 
                 HTTPSWebUtilDomi https = new HTTPSWebUtilDomi();
 
+                String jsonNotification = gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + caseTicket.getNumber() + " Iniciado!"));
                 new Thread(
                         ()->{
-                            https.POSTrequest(Constants.FIREBASE_BASEURL+ "cases/" + caseTicket.getPatientId()+".json",json);
+                            https.POSTrequest(Constants.FIREBASE_BASEURL+ "cases/" + caseId+".json",json);
                             //notificación
-                            https.POSTtoFCM(gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: "+caseTicket.getNumber()+" Iniciado!")));
+                            https.POSTtoFCM(jsonNotification);
                         }
                 ).start();
 
