@@ -108,7 +108,7 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
                 String jsonNotification = gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + caseTicket.getNumber() + " Iniciado!"));
                 new Thread(
                         ()->{
-                            https.POSTrequest(Constants.FIREBASE_BASEURL+ "cases/" + caseId+".json",json);
+                            https.PUTrequest(Constants.FIREBASE_BASEURL+ "cases/" + caseId+".json",json);
                             //notificación
                             https.POSTtoFCM(jsonNotification);
                         }
