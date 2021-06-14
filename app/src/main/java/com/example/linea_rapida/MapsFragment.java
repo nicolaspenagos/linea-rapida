@@ -109,8 +109,12 @@ public class MapsFragment extends Fragment implements LocationListener {
         }
 
 
+
+
         Location location = manager.getLastKnownLocation(provider);
-        updateDistance(location);
+
+        if(location!=null)
+         updateDistance(location);
         manager.requestLocationUpdates(provider, 1000, 1, (LocationListener) this);
 
         if(openHere!=null){
