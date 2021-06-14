@@ -19,12 +19,13 @@ public class CaseTicket {
     private String namePatient;
     private String patientAge;
     private String patientId;
+    private String id;
 
     public CaseTicket() {
     }
 
     public CaseTicket(String body, String date, String patientId, String username, String userid, String location,  String status, long number,
-                      String namePatient, String patientAge) {
+                      String namePatient, String patientAge, String id) {
 
         this.date = date;
         this.username = username;
@@ -37,7 +38,7 @@ public class CaseTicket {
         this.namePatient = namePatient;
         this.patientAge = patientAge;
         this.patientId = patientId;
-
+        this.id = id;
     }
 
     public String getDate() { return date;}
@@ -118,5 +119,25 @@ public class CaseTicket {
     public void setPatientId(String id) {
         this.patientId = id;
 
+    }
+
+    public String getPacientName() {
+        return pacientName;
+    }
+
+    public void setPacientName(String pacientName) {
+        this.pacientName = pacientName;
+    }
+
+    public String getNamePatient() {
+        return namePatient;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
