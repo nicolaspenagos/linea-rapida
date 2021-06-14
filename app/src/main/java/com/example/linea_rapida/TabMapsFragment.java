@@ -44,7 +44,7 @@ public class TabMapsFragment extends Fragment {
             TabCaseFragment.caseTickets.forEach(e->{
                 String[] loc = e.getLocation().split(",");
                 LatLng latLng = new LatLng(Double.parseDouble(loc[0]),Double.parseDouble(loc[1]));
-                googleMap.addMarker(new MarkerOptions().position(latLng).title(e.getPacientName()));
+                googleMap.addMarker(new MarkerOptions().position(latLng).title(e.getPatientName()));
             });
         }
     };

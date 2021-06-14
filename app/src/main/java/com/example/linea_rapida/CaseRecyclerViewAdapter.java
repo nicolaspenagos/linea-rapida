@@ -138,8 +138,8 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                 textViewDateValue.setText(mItem.getDate()+"");
                 textViewUsernameValue.setText(mItem.getUsername());
                 textViewUserIdValue.setText(mItem.getUserid());
-                textViewPacientName.setText(mItem.getPacientName());
-                textViewPacientAge.setText(mItem.getPacientAge()+"");
+                textViewPacientName.setText(mItem.getPatientName());
+                textViewPacientAge.setText(mItem.getPatientAge()+"");
 
 
                 switch (mItem.getStatus()) {
@@ -190,7 +190,7 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                         String json = gson.toJson(mItem);
                         HTTPSWebUtilDomi utilDomi = new HTTPSWebUtilDomi();
                         new Thread(()->{
-                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getId()+".json",json);
+                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getPatientId()+".json",json);
                         }).start();
                         //listview
                         mImageViewStatus.setImageResource(R.drawable.orange_dot);
@@ -209,7 +209,7 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                         String json = gson.toJson(mItem);
                         HTTPSWebUtilDomi utilDomi = new HTTPSWebUtilDomi();
                         new Thread(()->{
-                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getId()+".json",json);
+                            utilDomi.PUTrequest(Constants.FIREBASE_BASEURL + "cases/" + mItem.getPatientId()+".json",json);
                         }).start();
                         //listview
                         mImageViewStatus.setImageResource(R.drawable.red_dor);
