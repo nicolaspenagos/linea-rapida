@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.linea_rapida.model.CaseTicket;
 import com.example.linea_rapida.model.FCMMessage;
+import com.example.linea_rapida.model.FCMWrapper;
 import com.example.linea_rapida.placeholder.PlaceholderContent.PlaceholderItem;
 import com.example.linea_rapida.databinding.FragmentTabCaseBinding;
 import com.example.linea_rapida.util.Constants;
@@ -197,7 +198,8 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                         mContentView.setText("Estado: En proceso");
                         //case fragment
                         textViewStatusValue.setText("En proceso");
-                        String jsonMsg = gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber() + ", Actualizado!"));
+                        FCMWrapper wrapper = new FCMWrapper("/topics/news", new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber() + ", Actualizado!"));
+                        String jsonMsg = gson.toJson(wrapper);
                         new Thread(()->{
                             utilDomi.POSTtoFCM(jsonMsg);
                         }).start();
@@ -217,7 +219,8 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                         mContentView.setText("Estado: Finalizado");
                         //fragment case
                         textViewStatusValue.setText("Finalizado");
-                        String jsonMsg = gson.toJson(new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber() + ", Actualizado!"));
+                        FCMWrapper wrapper = new FCMWrapper("/topics/news", new FCMMessage(UUID.randomUUID().toString(), "Caso: " + mItem.getNumber() + ", Actualizado!"));
+                        String jsonMsg = gson.toJson(wrapper);
                         new Thread(()->{
                             utilDomi.POSTtoFCM(jsonMsg);
                         }).start();
