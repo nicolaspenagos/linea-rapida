@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -21,6 +20,8 @@ import com.example.linea_rapida.model.Role;
 import com.example.linea_rapida.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.concurrent.atomic.AtomicReference;
 
 public class RegisterUserFragment extends Fragment implements View.OnClickListener{
 
@@ -117,6 +118,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                 .addOnCompleteListener(
 
                         task -> {
+
                             if(task.isSuccessful()){
 
                                 String id = auth.getCurrentUser().getUid();
@@ -144,8 +146,6 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
 
 
                 );
-
-
 
     }
 
