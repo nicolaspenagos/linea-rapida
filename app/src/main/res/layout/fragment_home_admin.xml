@@ -20,17 +20,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/button_back2"
-                style="@style/AppGoBackButton"
-                android:layout_width="24dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/go_back_arrow" />
-
             <TextView
                 android:id="@+id/headerText"
                 style="@style/AppHeaderTitle"
@@ -106,8 +95,8 @@
 
         <ImageView
             android:id="@+id/button_add"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="24dp"
             android:src="@drawable/add_user"
             app:layout_constraintBottom_toBottomOf="parent"

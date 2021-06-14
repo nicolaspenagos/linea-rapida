@@ -1,14 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragmentReport">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Report" />
+        android:background="#FBFBFD">
+
+        <Button
+            android:id="@+id/registerPatientBtn"
+            style="@style/AppButton"
+            android:layout_width="348dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="32dp"
+            android:text="Registrar paciente"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/containInfoPatient" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            style="@style/AppHeader"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/headerText"
+                style="@style/AppHeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="33dp"
+                android:text="REGISTRO DE PACIENTE"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containInfoPatient"
+            android:layout_width="335dp"
+            android:layout_height="306dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/edit_text_background"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.0">
+
+            <EditText
+                android:id="@+id/namePatient"
+                style="@style/AppEditText"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="28dp"
+
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="28dp"
+                android:background="#1200A1D6"
+                android:ems="10"
+                android:hint="Nombre del paciente"
+                android:textColor="#0070B1"
+                android:textColorHint="#0070B1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/idPatient"
+                style="@style/AppEditText"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="28dp"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="28dp"
+                android:background="#1200A1D6"
+                android:ems="10"
+                android:hint="Identificación"
+                android:textColor="#0070B1"
+                android:textColorHint="#0070B1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/namePatient" />
+
+            <EditText
+                android:id="@+id/agePatientEditText"
+                style="@style/AppEditText"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="28dp"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="28dp"
+                android:background="#1200A1D6"
+                android:ems="10"
+                android:hint="Edad"
+                android:textColor="#0070B1"
+                android:textColorHint="#0070B1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idPatient" />
+
+            <EditText
+                android:id="@+id/dateActualET"
+                style="@style/AppEditText"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="28dp"
+
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="28dp"
+                android:background="#1200A1D6"
+                android:ems="10"
+                android:hint="Fecha actual"
+                android:textColor="#0070B1"
+                android:textColorHint="#0070B1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/agePatientEditText" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Ingrese los datos del paciente:"
+            android:textColorHint="#5D5D5E"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

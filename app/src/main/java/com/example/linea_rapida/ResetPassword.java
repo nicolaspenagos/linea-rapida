@@ -30,7 +30,7 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
 
         emailET = findViewById(R.id.resetPasswordEmailET);
         resetPasswordBtn = findViewById(R.id.resetPasswordBtn);
-        goBackBtn = findViewById(R.id.resetPasswordGoBackBtn);
+        goBackBtn = findViewById(R.id.upBackButton);
         errorTV = findViewById(R.id.resetPasswordErrorTV);
 
         resetPasswordBtn.setOnClickListener(this);
@@ -56,7 +56,7 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
                     errorTV.setText("Por favor añade un correo.");
 
                 break;
-            case R.id.resetPasswordGoBackBtn:
+            case R.id.upBackButton:
                 finish();
                 break;
         }

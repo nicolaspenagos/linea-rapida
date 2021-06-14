@@ -2,11 +2,12 @@ package com.example.linea_rapida.model;
 
 public class CaseTicket {
 
+
     public static final String STATUS_STARTED = "1";
     public static final String STATUS_IN_PROGRESS = "2";
     public static final String STATUS_FINISHED = "3";
 
-    private long date;
+    private String date;
     private String username;
     private String userid;
     private String location;
@@ -14,14 +15,17 @@ public class CaseTicket {
     private String status;
     private String pacientName;
     private long number;
-    private long pacientAge;
-    private String id;
 
+    private String namePatient;
+    private String patientAge;
+    private String patientId;
 
     public CaseTicket() {
     }
 
-    public CaseTicket(long date, String username, String userid, String location, String body, String status, String pacientName, long number, long pacientAge, String id) {
+    public CaseTicket(String body, String date, String patientId, String username, String userid, String location,  String status, long number,
+                      String namePatient, String patientAge) {
+
         this.date = date;
         this.username = username;
         this.userid = userid;
@@ -30,16 +34,16 @@ public class CaseTicket {
         this.status = status;
         this.pacientName = pacientName;
         this.number = number;
-        this.pacientAge = pacientAge;
-        this.id = id;
+        this.namePatient = namePatient;
+        this.patientAge = patientAge;
+        this.patientId = patientId;
+
     }
 
+    public String getDate() { return date;}
 
-    public long getDate() {
-        return date;
-    }
 
-    public void setDate(long date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -91,27 +95,28 @@ public class CaseTicket {
         this.number = number;
     }
 
-    public String getPacientName() {
-        return pacientName;
+    public String getPatientName() {
+        return namePatient;
     }
 
-    public void setPacientName(String pacientName) {
-        this.pacientName = pacientName;
+    public void setNamePatient(String name) {
+        this.namePatient = namePatient;
     }
 
-    public long getPacientAge() {
-        return pacientAge;
+    public String getPatientAge() {
+        return namePatient;
     }
 
-    public void setPacientAge(long pacientAge) {
-        this.pacientAge = pacientAge;
+    public void setPatientAge(String age) {
+        this.patientAge = age;
     }
 
-    public String getId() {
-        return id;
+    public String getPatientId() {
+        return patientId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setPatientId(String id) {
+        this.patientId = id;
+
     }
 }
