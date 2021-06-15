@@ -134,8 +134,8 @@ public class RegisterReport extends Fragment {
         String actualDate = ((MainActivity)getActivity()).getDate();
 //long date, String username, String userid, String location, String body, String status, long number
 
-        String sintomas = ((MainActivity)getActivity()).getSintomasPecho() +","+  ((MainActivity)getActivity()).getSintomasCabeza()
-                + "," + ((MainActivity)getActivity()).getSintomasEspalda()+ ";"+"Diagnostico";
+        String sintomas = ((MainActivity)getActivity()).getSintomasPecho() +" "+  ((MainActivity)getActivity()).getSintomasCabeza()
+                + " " + ((MainActivity)getActivity()).getSintomasEspalda()+ ";"+"Diagnostico";
         System.out.println(sintomas+"diosssslos sintomas");
         String body = "Sintomas;Diagnostico";
         String username = "ana";
