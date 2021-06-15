@@ -126,7 +126,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
     private void goToHome(){
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SplashScreen.class);
         startActivity(intent);
         finish();
 

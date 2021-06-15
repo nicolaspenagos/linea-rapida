@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.gson.Gson;
 //import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
+        String userJson = getIntent().getStringExtra("user");
+        Log.e(">>>", userJson);
+        Gson gson = new Gson();
+
+        currentUser = gson.fromJson(userJson, User.class);
+
+
 
         ActivityCompat.requestPermissions(this, new String[]{
                         Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -58,13 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 PERMISSIONS_CALLBACK
         );
 
-        FirebaseUser fbUser = auth.getCurrentUser();
+        //FirebaseUser fbUser = auth.getCurrentUser();
 
         FirebaseMessaging.getInstance().subscribeToTopic("news");
 
-        if(fbUser == null){
-            goToLogin();
-        }else{
+
+
 
 
             navigator = findViewById(R.id.navigatorBNV);
@@ -94,47 +101,28 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+            switch (currentUser.getRole().getRole()){
+                case Role.ADMIN_ROLE:
+                    homeFragment = HomeFragmentAdmin.newInstance();
+                    break;
+                case Role.REPORTER_ROLE:
+                    homeFragment = HomeFragmentReport.newInstance();
+                    break;
+                case Role.DOCTOR_ROLE:
+                    homeFragment = HomeFragmentCases.newInstance();
+                    break;
+
+            }
+
+            mapsFragment = new MapsFragment();
+            profileFragment = ProfileFragment.newInstance(currentUser);
+
+            navigator.setSelectedItemId(R.id.homeItem);
+            showFragment(homeFragment);
 
 
 
 
-            db.collection("users").document(fbUser.getUid()).get().addOnCompleteListener(
-                    task -> {
-                        if(task.isSuccessful()){
-
-                            DocumentSnapshot dataSnapshot = task.getResult();
-                            currentUser = dataSnapshot.toObject(User.class);
-
-                            switch (currentUser.getRole().getRole()){
-                                case Role.ADMIN_ROLE:
-                                    homeFragment = HomeFragmentAdmin.newInstance();
-                                    break;
-                                case Role.REPORTER_ROLE:
-                                    homeFragment = HomeFragmentReport.newInstance();
-                                    break;
-                                case Role.DOCTOR_ROLE:
-                                    homeFragment = HomeFragmentCases.newInstance();
-                                    break;
-
-                            }
-
-                            mapsFragment = new MapsFragment();
-                            profileFragment = ProfileFragment.newInstance(currentUser);
-
-                            navigator.setSelectedItemId(R.id.homeItem);
-                            showFragment(homeFragment);
-
-
-                        }else{
-
-                        }
-
-                    }
-            );
-
-
-
-        }
 
     }
 
