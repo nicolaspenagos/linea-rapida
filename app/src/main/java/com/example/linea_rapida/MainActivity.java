@@ -40,8 +40,16 @@ public class MainActivity extends AppCompatActivity {
     private Fragment homeFragment;
 
     private User currentUser;
+    private String ubication;
 
+    private String sintomasCabeza;
+    private String sintomasPecho;
+    private String sintomasEspalda;
 
+    private String name;
+    private String date;
+    private String id;
+    private String age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +64,15 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
 
         currentUser = gson.fromJson(userJson, User.class);
+        ubication = "";
+        sintomasCabeza = "";
+        sintomasPecho = "";
+        sintomasEspalda = "";
 
-
+        name = "";
+        date = "";
+        id = "";
+        age = "";
 
         ActivityCompat.requestPermissions(this, new String[]{
                         Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -114,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            mapsFragment = new MapsFragment();
+            mapsFragment = MapsFragment.newInstance();
             profileFragment = ProfileFragment.newInstance(currentUser);
 
             navigator.setSelectedItemId(R.id.homeItem);
@@ -169,6 +184,69 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public String getUbicationForReport(){
+        return ubication;
+    }
+
+    public void setUbicationForReport(String ubication){
+        this.ubication = ubication;
+    }
+
+    public String getSintomasCabeza(){
+        return sintomasCabeza;
+    }
+
+    public void setSintomasCabeza(String sintomasCabeza){
+        this.sintomasCabeza = sintomasCabeza;
+    }
+
+    public String getSintomasPecho(){
+        return sintomasPecho;
+    }
+
+    public void setSintomasPecho(String sintomasPecho){
+        this.sintomasPecho = sintomasPecho;
+    }
+
+    public String getSintomasEspalda(){
+        return sintomasEspalda;
+    }
+
+    public void setSintomasEspalda(String sintomasPecho){
+        this.sintomasEspalda = sintomasEspalda;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getDate(){
+        return date;
+    }
+
+    public void setDate(String date){
+        this.date = date;
+    }
+
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String id){
+        this.id = id;
+    }
+
+    public String getAge(){
+        return age;
+    }
+
+    public void setAge(String age){
+        this.age = age;
+    }
 
 
 }

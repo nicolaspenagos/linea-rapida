@@ -11,17 +11,6 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/checkButton2"
-            android:layout_width="62dp"
-            android:layout_height="56dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="70dp"
-            android:background="#00FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/checked" />
-
-        <ImageButton
             android:id="@+id/girarButton2"
             android:layout_width="96dp"
             android:layout_height="32dp"
@@ -57,17 +46,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/upBackButton"
-                style="@style/AppGoBackButton"
-                android:layout_width="24dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/go_back_arrow" />
 
 
             <TextView

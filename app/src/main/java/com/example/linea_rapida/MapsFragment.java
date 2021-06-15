@@ -130,6 +130,7 @@ public class MapsFragment extends Fragment implements LocationListener {
         if(location!=null)
          updateDistance(location);
          ubicationForReport = location.getLatitude() + ", " + location.getLongitude();
+        ((MainActivity)getActivity()).setUbicationForReport(ubicationForReport);
          System.out.println(ubicationForReport);
         manager.requestLocationUpdates(provider, 1000, 1, (LocationListener) this);
 
