@@ -15,7 +15,7 @@
             style="@style/AppButton"
             android:layout_width="348dp"
             android:layout_height="43dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="8dp"
             android:text="Agregar síntomas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,6 @@
             android:layout_width="349dp"
             android:layout_height="239dp"
 
-            android:layout_marginTop="8dp"
             android:background="@drawable/imagensintom"
             android:color="#33C4C4C4"
             android:elevation="2dp"
@@ -100,10 +99,12 @@
             android:layout_width="360dp"
             android:layout_height="248dp"
             android:background="@drawable/symptomsback"
+            app:layout_constraintBottom_toTopOf="@+id/addBackSymptom"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.403"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageConstraint">
+            app:layout_constraintTop_toBottomOf="@+id/imageConstraint"
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:id="@+id/murmulloEsterText"
@@ -137,7 +138,7 @@
                 app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/murmulloEsterText"
-                app:layout_constraintVertical_bias="0.06" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/froteText"
@@ -145,7 +146,6 @@
                 android:layout_width="277dp"
                 android:layout_height="43dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
                 android:background="@drawable/symptomtextview"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Murmullo vesicular frote"
@@ -154,7 +154,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sibilanciasText"
-                app:layout_constraintVertical_bias="0.388" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/sibilanciasText"
@@ -173,7 +173,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/crepitosText"
-                app:layout_constraintVertical_bias="0.458" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <RadioButton
                 android:id="@+id/murEsterBtn"
@@ -188,7 +188,7 @@
                 android:id="@+id/crepBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/murEsterBtn" />
@@ -197,7 +197,7 @@
                 android:id="@+id/sibilanciasBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/crepBtn" />
@@ -206,7 +206,7 @@
                 android:id="@+id/froteBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sibilanciasBtn" />

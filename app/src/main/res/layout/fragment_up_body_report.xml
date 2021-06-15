@@ -15,7 +15,7 @@
             style="@style/AppButton"
             android:layout_width="348dp"
             android:layout_height="43dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
             android:text="Agregar síntomas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,6 @@
             android:id="@+id/imageConstraint"
             android:layout_width="349dp"
             android:layout_height="239dp"
-            android:layout_marginTop="8dp"
 
             android:background="@drawable/imagensintom"
             android:color="#33C4C4C4"
@@ -142,7 +141,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/pupilasSymp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/haloText"
-                app:layout_constraintVertical_bias="0.082" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/agudezaText"
@@ -158,7 +157,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/agudezaSymp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pupilasText"
-                app:layout_constraintVertical_bias="0.132" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/mucosasText"
@@ -174,7 +173,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/mucosasSymp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/agudezaText"
-                app:layout_constraintVertical_bias="0.384" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <RadioButton
                 android:id="@+id/haloSymp"
@@ -189,7 +188,7 @@
                 android:id="@+id/pupilasSymp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/haloSymp" />
@@ -198,7 +197,7 @@
                 android:id="@+id/agudezaSymp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pupilasSymp" />
@@ -207,7 +206,7 @@
                 android:id="@+id/mucosasSymp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/agudezaSymp" />

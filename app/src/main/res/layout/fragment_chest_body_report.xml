@@ -12,11 +12,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout8"
-            android:layout_width="359dp"
-            android:layout_height="240dp"
+            android:layout_width="350dp"
+            android:layout_height="220dp"
             android:background="@drawable/symptomsback"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageConstraint">
 
@@ -33,45 +33,10 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/peristalAuBtn"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.121" />
-
-            <RadioButton
-                android:id="@+id/megaliasBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/masasBtn" />
-
-            <TextView
-                android:id="@+id/megaliasText"
-                style="@style/AppEditText"
-                android:layout_width="277dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/symptomtextview"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Megalias"
-                android:textAlignment="inherit"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/pupilasSymp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/masasText"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <RadioButton
-                android:id="@+id/peristalAuBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintVertical_bias="0.09" />
 
             <TextView
                 android:id="@+id/masasText"
@@ -89,16 +54,25 @@
                 app:layout_constraintEnd_toStartOf="@+id/agudezaSymp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/peristalDisText"
-                app:layout_constraintVertical_bias="0.409" />
+                app:layout_constraintVertical_bias="0.0" />
 
-            <RadioButton
-                android:id="@+id/peristalDisBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/peristalAuBtn" />
+            <TextView
+                android:id="@+id/megaliasText"
+                style="@style/AppEditText"
+                android:layout_width="277dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/symptomtextview"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Megalias"
+                android:textAlignment="inherit"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/pupilasSymp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/masasText"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/peristalDisText"
@@ -114,15 +88,43 @@
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/peristalDisBtn"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/peristalAumText"
-                app:layout_constraintVertical_bias="0.772" />
+                app:layout_constraintVertical_bias="0.0" />
+
+            <RadioButton
+                android:id="@+id/megaliasBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/masasBtn" />
+
+            <RadioButton
+                android:id="@+id/peristalAuBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioButton
+                android:id="@+id/peristalDisBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/peristalAuBtn" />
 
             <RadioButton
                 android:id="@+id/masasBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/peristalDisBtn" />
@@ -133,23 +135,25 @@
             style="@style/AppButton"
             android:layout_width="348dp"
             android:layout_height="43dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="8dp"
             android:text="Agregar síntomas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout8"
+            app:layout_constraintVertical_bias="0.864" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/imageConstraint"
             android:layout_width="349dp"
             android:layout_height="239dp"
 
-            android:layout_marginTop="8dp"
             android:background="@drawable/imagensintom"
             android:color="#33C4C4C4"
             android:elevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoTextView2">
 
