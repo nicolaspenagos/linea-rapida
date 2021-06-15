@@ -29,6 +29,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
 
 
@@ -46,9 +47,12 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
 
     private DatabaseReference mRootReference;
 
+    private String ubication;
+
     public HomeFragmentReport() {
         // Required empty public constructor
         mapsFragment = MapsFragment.newInstance();
+        ubication = "";
     }
 
     public static HomeFragmentReport newInstance() {
@@ -90,21 +94,27 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
         switch(v.getId()){
             case R.id.registerPatientBtn:
 
-                String name = namePatientET.getText().toString();
-                String id = idPatientET.getText().toString();
-                String age = agePatientET.getText().toString();
-                String actualDate = actualDateET.getText().toString();
+                Random random = new Random();
+                int randomNumber = random.nextInt(10000);
+
+                ((MainActivity)getActivity()).setName(namePatientET.getText().toString());
+
+                ((MainActivity)getActivity()).setId(idPatientET.getText().toString());
+                ((MainActivity)getActivity()).setAge(agePatientET.getText().toString());
+                ((MainActivity)getActivity()).setDate(actualDateET.getText().toString());
 //long date, String username, String userid, String location, String body, String status, long number
 
+               /* String sintomas = ((MainActivity)getActivity()).getSintomasPecho() + ((MainActivity)getActivity()).getSintomasPecho();
+                System.out.println(sintomas);
                 String body = "Sintomas;Diagnostico";
                 String username = "ana";
-                String userid = "12";
-                String location = "3.5753, 5.52753";
+                String userid = ((MainActivity)getActivity()).getCurrentUser().getId();
+                String location = ((MainActivity)getActivity()).getUbicationForReport();
                 String status = "1";
-                long number = 3;
+                long number = (long) randomNumber;
                 String caseId = UUID.randomUUID().toString();
 
-                System.out.println(location);
+                System.out.println(location+"funcionooooo");
 
                 CaseTicket caseTicket = new CaseTicket(body, actualDate, id, username, userid, location, status, number, name, age,caseId);
                 Gson gson = new Gson();
@@ -121,7 +131,7 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
                             https.POSTtoFCM(jsonNotification);
                         }
                 ).start();
-
+*/
                 ((MainActivity)getActivity()).showFragment(RegisterReport.newInstance());
 
 

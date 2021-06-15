@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/addHeadSymptomBtn"
+            android:id="@+id/addHeadSymptomBtn3"
             style="@style/AppButton"
             android:layout_width="348dp"
             android:layout_height="43dp"
@@ -22,7 +22,7 @@
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout8"
-            app:layout_constraintVertical_bias="0.772" />
+            app:layout_constraintVertical_bias="0.822" />
 
         <TextView
             android:id="@+id/infoTextView"
