@@ -44,6 +44,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
     private TextView headerText;
     private TextView aet_textview;
     private TextView aed_textview;
+    private ImageView imageView;
 
     private String userId_to_edit;
 
@@ -95,7 +96,8 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         headerText = root.findViewById(R.id.headerText);
         aet_textview = root.findViewById(R.id.addEditTextView);
         aed_textview = root.findViewById(R.id.addEditDescTextView);
-
+        imageView = root.findViewById(R.id.imageView3);
+        //imageView.setVisibility(View.GONE);
 
         backBtn.setOnClickListener(
                 v -> {

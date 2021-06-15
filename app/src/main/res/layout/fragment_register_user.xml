@@ -1,239 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4E4E4"
-    android:backgroundTint="#00FF0000">
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        style="@style/AppHeader"
+        android:id="@+id/parentLayout"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:background="#E4E4E4"
+        android:backgroundTint="#00FF0000"
+        >
 
-        <ImageView
-            android:id="@+id/button_back2"
-            style="@style/AppGoBackButton"
-            android:layout_width="24dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            style="@style/AppHeader"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/go_back_arrow" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/button_back2"
+                style="@style/AppGoBackButton"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/go_back_arrow" />
+
+            <TextView
+                android:id="@+id/headerText"
+                style="@style/AppHeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="33dp"
+                android:text="REGISTRAR USUARIO"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/signUpFullnameET"
+            style="@style/AppEditText"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Nombre completo"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addEditDescTextView" />
+
+        <EditText
+            android:id="@+id/signUpEmailET"
+            style="@style/AppEditText"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Correo electrónico"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUpFullnameET" />
+
+        <EditText
+            android:id="@+id/signUpUsernameET"
+            style="@style/AppEditText"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Usuario"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUpEmailET" />
+
+        <EditText
+            android:id="@+id/signUpPasswordET"
+            style="@style/AppEditText"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUpUsernameET" />
+
+        <Button
+            android:id="@+id/signUpBtn"
+            style="@style/AppButton"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/button_background"
+            android:text="Registrar"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUpErrorTV" />
+
+        <RadioButton
+            android:id="@+id/signUpfieldRdoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:buttonTint="@color/light_blue"
+            android:text="Campo"
+            app:layout_constraintEnd_toStartOf="@+id/signUpAdminRdoBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/signUpPlantRdoBtn"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <RadioButton
+            android:id="@+id/signUpPlantRdoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:buttonTint="@color/light_blue"
+            android:text="Planta"
+            app:layout_constraintEnd_toStartOf="@+id/signUpfieldRdoBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <RadioButton
+            android:id="@+id/signUpAdminRdoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:buttonTint="@color/light_blue"
+            android:text="Admin"
+            app:layout_constraintStart_toEndOf="@+id/signUpfieldRdoBtn"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <TextView
-            android:id="@+id/headerText"
+            android:id="@+id/signUpErrorTV"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:textColor="#FF0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUpManRdoBtn" />
+
+        <RadioButton
+            android:id="@+id/signUpManRdoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:buttonTint="@color/light_blue"
+            android:text="Hombre"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/signUpWomanRdoBtn"
+            app:layout_constraintTop_toTopOf="@+id/signUpWomanRdoBtn" />
+
+        <RadioButton
+            android:id="@+id/signUpWomanRdoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:buttonTint="@color/light_blue"
+            android:text="Mujer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="112dp"
+            android:layout_height="132dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:srcCompat="@drawable/add_user_doctor" />
+
+        <TextView
+            android:id="@+id/addEditTextView"
             style="@style/AppHeaderTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="33dp"
-            android:text="REGISTRAR USUARIO"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Añadir usuario"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/addEditDescTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresa la información básica del nuevo usuario"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addEditTextView" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:text="Tipo:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUpPasswordET" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Género:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signUpPlantRdoBtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <EditText
-        android:id="@+id/signUpFullnameET"
-        style="@style/AppEditText"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Nombre completo"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addEditDescTextView" />
-
-    <EditText
-        android:id="@+id/signUpEmailET"
-        style="@style/AppEditText"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Correo electrónico"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpFullnameET" />
-
-    <EditText
-        android:id="@+id/signUpUsernameET"
-        style="@style/AppEditText"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Usuario"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpEmailET" />
-
-    <EditText
-        android:id="@+id/signUpPasswordET"
-        style="@style/AppEditText"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpUsernameET" />
-
-    <Button
-        android:id="@+id/signUpBtn"
-        style="@style/AppButton"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/button_background"
-        android:text="Registrar"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioButton
-        android:id="@+id/signUpfieldRdoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:buttonTint="@color/light_blue"
-        android:text="Campo"
-        app:layout_constraintEnd_toStartOf="@+id/signUpAdminRdoBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/signUpPlantRdoBtn"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-    <RadioButton
-        android:id="@+id/signUpPlantRdoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:buttonTint="@color/light_blue"
-        android:text="Planta"
-        app:layout_constraintEnd_toStartOf="@+id/signUpfieldRdoBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-    <RadioButton
-        android:id="@+id/signUpAdminRdoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:buttonTint="@color/light_blue"
-        android:text="Admin"
-        app:layout_constraintStart_toEndOf="@+id/signUpfieldRdoBtn"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-    <TextView
-        android:id="@+id/signUpErrorTV"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textAlignment="center"
-        android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioButton
-        android:id="@+id/signUpManRdoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:buttonTint="@color/light_blue"
-        android:text="Hombre"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/signUpWomanRdoBtn"
-        app:layout_constraintTop_toTopOf="@+id/signUpWomanRdoBtn" />
-
-    <RadioButton
-        android:id="@+id/signUpWomanRdoBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:buttonTint="@color/light_blue"
-        android:text="Mujer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="112dp"
-        android:layout_height="132dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:srcCompat="@drawable/add_user_doctor" />
-
-    <TextView
-        android:id="@+id/addEditTextView"
-        style="@style/AppHeaderTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Añadir usuario"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/addEditDescTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ingresa la información básica del nuevo usuario"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addEditTextView" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="Tipo:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpPasswordET" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Género:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpPlantRdoBtn" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
