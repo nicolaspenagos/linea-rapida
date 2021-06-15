@@ -27,6 +27,12 @@ public class TabMapsFragment extends Fragment {
         }
     }
 
+    public static void placeMarker(LatLng latLng, String pacientName) {
+        if (latLng != null) {
+            map.addMarker(new MarkerOptions().position(latLng).title(pacientName));
+        }
+    }
+
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
         /**
          * Manipulates the map once available.

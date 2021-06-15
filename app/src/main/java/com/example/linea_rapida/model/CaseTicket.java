@@ -105,7 +105,7 @@ public class CaseTicket {
     }
 
     public String getPatientAge() {
-        return namePatient;
+        return patientAge;
     }
 
     public void setPatientAge(String age) {

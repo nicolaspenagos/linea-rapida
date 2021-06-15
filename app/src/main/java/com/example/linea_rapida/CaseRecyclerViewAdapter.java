@@ -170,6 +170,7 @@ public class CaseRecyclerViewAdapter extends RecyclerView.Adapter<CaseRecyclerVi
                 locationBtn.setOnClickListener((view1)->{
                     String[] loc = mItem.getLocation().split(",");
                     LatLng latLng = new LatLng(Double.parseDouble(loc[0]),Double.parseDouble(loc[1]));
+                    TabMapsFragment.placeMarker(latLng, mItem.getPacientName());
                     TabMapsFragment.focusMap(latLng);
                     dialog.dismiss();
                 });

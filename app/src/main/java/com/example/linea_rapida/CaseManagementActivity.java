@@ -71,6 +71,7 @@ public class CaseManagementActivity extends AppCompatActivity {
             }).start();
 //            TabCaseFragment.updateData();
             this.recreate();
+            loadMapMarkers();
         });
         loadMapMarkers();
     }
