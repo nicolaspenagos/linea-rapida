@@ -28,7 +28,6 @@ public class TabMapsFragment extends Fragment {
     }
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
-
         /**
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
@@ -41,11 +40,6 @@ public class TabMapsFragment extends Fragment {
         @Override
         public void onMapReady(GoogleMap googleMap) {
             map = googleMap;
-            TabCaseFragment.caseTickets.forEach(e->{
-                String[] loc = e.getLocation().split(",");
-                LatLng latLng = new LatLng(Double.parseDouble(loc[0]),Double.parseDouble(loc[1]));
-                googleMap.addMarker(new MarkerOptions().position(latLng).title(e.getPatientName()));
-            });
         }
     };
 

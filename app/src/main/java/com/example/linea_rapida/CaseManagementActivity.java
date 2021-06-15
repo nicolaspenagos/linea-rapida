@@ -5,6 +5,8 @@ import android.os.Bundle;
 import com.example.linea_rapida.model.CaseTicket;
 import com.example.linea_rapida.util.Constants;
 import com.example.linea_rapida.util.HTTPSWebUtilDomi;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -42,7 +44,6 @@ public class CaseManagementActivity extends AppCompatActivity {
         TabLayout tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
 
-
         ImageView backArrow = binding.backArrowIV;
 
         ImageView syncData = binding.syncDataBtn;
@@ -50,6 +51,7 @@ public class CaseManagementActivity extends AppCompatActivity {
         backArrow.setOnClickListener(view->{
             finish();
         });
+
 
         syncData.setOnClickListener(v -> {
             TabCaseFragment.caseTickets.clear();
@@ -67,7 +69,28 @@ public class CaseManagementActivity extends AppCompatActivity {
                         }
                 );
             }).start();
+//            TabCaseFragment.updateData();
             this.recreate();
         });
+        loadMapMarkers();
+    }
+
+    protected void loadMapMarkers() {
+        new Thread(()->{
+            boolean repeat = true;
+            while (repeat) {
+                if ((TabMapsFragment.map != null)&&(TabCaseFragment.caseTickets!=null)) {
+                    runOnUiThread(()->{
+//                        TabMapsFragment.map.clear();
+                        TabCaseFragment.caseTickets.forEach(e->{
+                            String[] loc = e.getLocation().split(",");
+                            LatLng latLng = new LatLng(Double.parseDouble(loc[0]),Double.parseDouble(loc[1]));
+                            TabMapsFragment.map.addMarker(new MarkerOptions().position(latLng).title(e.getPatientName()));
+                        });
+                    });
+                    repeat = false;
+                }
+            }
+        }).start();
     }
 }
