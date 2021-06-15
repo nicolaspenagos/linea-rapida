@@ -3,6 +3,7 @@ package com.example.linea_rapida;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,8 +19,15 @@ import com.example.linea_rapida.placeholder.PlaceholderContent;
 import com.example.linea_rapida.util.Constants;
 import com.example.linea_rapida.util.HTTPSWebUtilDomi;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -35,9 +43,13 @@ public class TabCaseFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
 
+    FirebaseDatabase realtimeDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference reference = realtimeDatabase.getReference("cases");
 
     public static ArrayList<CaseTicket> caseTickets = new ArrayList<>();
 
+    private View view;
+    private static CaseRecyclerViewAdapter caseRecyclerViewAdapter;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -70,10 +82,11 @@ public class TabCaseFragment extends Fragment {
         HTTPSWebUtilDomi httpsWebUtilDomi = new HTTPSWebUtilDomi();
         new Thread(() ->{
             String res = httpsWebUtilDomi.GETrequest(Constants.FIREBASE_BASEURL + "cases.json");
-
+//                    String res = snapshot.getValue().toString();
+//                    Log.e(">>>>>>>", "onDataChange: "+res);
+//                    Log.e(">>>>>>>", "OnDataChange2: "+res1);
             Type type = new TypeToken<HashMap<String, CaseTicket>>(){}.getType();
             Gson gson = new Gson();
-
             HashMap<String, CaseTicket> caseTicketHashMap = gson.fromJson(res, type);
             caseTicketHashMap.forEach(
                     (key,value)->{
@@ -81,15 +94,14 @@ public class TabCaseFragment extends Fragment {
                     }
             );
         }).start();
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tab_case_list, container, false);
-
-
+        view = inflater.inflate(R.layout.fragment_tab_case_list, container, false);
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -99,9 +111,14 @@ public class TabCaseFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new CaseRecyclerViewAdapter(caseTickets));
+            caseRecyclerViewAdapter = new CaseRecyclerViewAdapter(caseTickets);
+            recyclerView.setAdapter(caseRecyclerViewAdapter);
         }
         return view;
+    }
+
+    public static void updateData() {
+        caseRecyclerViewAdapter.notifyDataSetChanged();
     }
 
 }

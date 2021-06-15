@@ -56,14 +56,11 @@ public class SplashScreen extends AppCompatActivity {
                             finish();
 
 
-
-
                         }else{
 
                             Intent intent = new Intent(this, Login.class);
                             startActivity(intent);
                             finish();
-
 
                         }
 
