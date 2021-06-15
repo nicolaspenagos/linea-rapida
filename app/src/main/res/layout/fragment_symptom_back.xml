@@ -4,28 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpBodyReport">
+    tools:context=".SymptomBackFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/addHeadSymptomBtn"
+            android:id="@+id/addBackSymptom"
             style="@style/AppButton"
             android:layout_width="348dp"
             android:layout_height="43dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="28dp"
             android:text="Agregar síntomas"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/imageConstraint"
+            android:layout_width="349dp"
+            android:layout_height="239dp"
+
+            android:layout_marginTop="8dp"
+            android:background="@drawable/imagensintom"
+            android:color="#33C4C4C4"
+            android:elevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout8"
-            app:layout_constraintVertical_bias="0.772" />
+            app:layout_constraintTop_toBottomOf="@+id/infoTextView4">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lungs"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/infoTextView"
+            android:id="@+id/infoTextView4"
             android:layout_width="321dp"
             android:layout_height="56dp"
             android:layout_marginStart="45dp"
@@ -75,144 +96,121 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/imageConstraint"
-            android:layout_width="349dp"
-            android:layout_height="239dp"
-            android:layout_marginTop="8dp"
-
-            android:background="@drawable/imagensintom"
-            android:color="#33C4C4C4"
-            android:elevation="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/infoTextView">
-
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="267dp"
-                android:layout_height="213dp"
-                android:src="@drawable/head"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.954" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout8"
-            android:layout_width="359dp"
-            android:layout_height="240dp"
+            android:layout_width="360dp"
+            android:layout_height="248dp"
             android:background="@drawable/symptomsback"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintHorizontal_bias="0.403"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageConstraint">
 
             <TextView
-                android:id="@+id/haloText"
+                android:id="@+id/murmulloEsterText"
                 style="@style/AppEditText"
                 android:layout_width="277dp"
                 android:layout_height="43dp"
                 android:background="@drawable/symptomtextview"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Halopecia"
+                android:text="Murmullo vesicular estertor"
                 android:textAlignment="inherit"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/haloSymp"
+                app:layout_constraintEnd_toStartOf="@+id/murEsterBtn"
+                app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.081" />
+                app:layout_constraintVertical_bias="0.107" />
 
             <TextView
-                android:id="@+id/pupilasText"
+                android:id="@+id/crepitosText"
                 style="@style/AppEditText"
                 android:layout_width="277dp"
                 android:layout_height="43dp"
                 android:background="@drawable/symptomtextview"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Pupilas anisocoricas"
+                android:text="Murmullo vesicular crepitos"
                 android:textAlignment="inherit"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/pupilasSymp"
+                app:layout_constraintEnd_toStartOf="@+id/crepBtn"
+                app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/haloText"
-                app:layout_constraintVertical_bias="0.082" />
+                app:layout_constraintTop_toBottomOf="@+id/murmulloEsterText"
+                app:layout_constraintVertical_bias="0.06" />
 
             <TextView
-                android:id="@+id/agudezaText"
+                android:id="@+id/froteText"
                 style="@style/AppEditText"
                 android:layout_width="277dp"
                 android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/symptomtextview"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Agudeza visual anormal"
+                android:text="Murmullo vesicular frote"
                 android:textAlignment="inherit"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/agudezaSymp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pupilasText"
-                app:layout_constraintVertical_bias="0.132" />
+                app:layout_constraintTop_toBottomOf="@+id/sibilanciasText"
+                app:layout_constraintVertical_bias="0.388" />
 
             <TextView
-                android:id="@+id/mucosasText"
+                android:id="@+id/sibilanciasText"
                 style="@style/AppEditText"
                 android:layout_width="277dp"
                 android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="64dp"
                 android:background="@drawable/symptomtextview"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Mucosas pálidas"
+                android:text="Murmullo vesicular sibilancias"
                 android:textAlignment="inherit"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/mucosasSymp"
+                app:layout_constraintEnd_toStartOf="@+id/sibilanciasBtn"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/agudezaText"
-                app:layout_constraintVertical_bias="0.384" />
+                app:layout_constraintTop_toBottomOf="@+id/crepitosText"
+                app:layout_constraintVertical_bias="0.458" />
 
             <RadioButton
-                android:id="@+id/haloSymp"
+                android:id="@+id/murEsterBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RadioButton
-                android:id="@+id/pupilasSymp"
+                android:id="@+id/crepBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/haloSymp" />
+                app:layout_constraintTop_toBottomOf="@+id/murEsterBtn" />
 
             <RadioButton
-                android:id="@+id/agudezaSymp"
+                android:id="@+id/sibilanciasBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pupilasSymp" />
+                app:layout_constraintTop_toBottomOf="@+id/crepBtn" />
 
             <RadioButton
-                android:id="@+id/mucosasSymp"
+                android:id="@+id/froteBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/agudezaSymp" />
+                app:layout_constraintTop_toBottomOf="@+id/sibilanciasBtn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

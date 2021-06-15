@@ -7,28 +7,25 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UpBodyReport#newInstance} factory method to
+ * Use the {@link SymptomBackFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UpBodyReport extends Fragment {
+public class SymptomBackFragment extends Fragment {
 
     private ImageView backButton;
 
-    private RadioButton symptom;
-
-
-    public UpBodyReport() {
+    public SymptomBackFragment() {
         // Required empty public constructor
     }
 
     // TODO: Rename and change types and number of parameters
-    public static UpBodyReport newInstance() {
-        UpBodyReport fragment = new UpBodyReport();
+    public static SymptomBackFragment newInstance() {
+        SymptomBackFragment fragment = new SymptomBackFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -37,23 +34,26 @@ public class UpBodyReport extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
 
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_up_body_report, container, false);
+        View root = inflater.inflate(R.layout.fragment_symptom_back, container, false);
 
         backButton = root.findViewById(R.id.upBackButton);
 
         backButton.setOnClickListener(
                 v -> {
-                    ((MainActivity)getActivity()).showFragment(RegisterReport.newInstance());
+                    ((MainActivity)getActivity()).showFragment(ReportBackBodyFragment.newInstance());
                 }
 
         );
+
 
         return root;
     }

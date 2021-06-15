@@ -42,10 +42,13 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
 
     private CaseTicket caseTicket;
 
+    private MapsFragment mapsFragment;
+
     private DatabaseReference mRootReference;
 
     public HomeFragmentReport() {
         // Required empty public constructor
+        mapsFragment = MapsFragment.newInstance();
     }
 
     public static HomeFragmentReport newInstance() {
@@ -77,6 +80,7 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
 
         registerPatient.setOnClickListener(this);
 
+        mapsFragment.getUbicationForReport();
         return root;
     }
 
@@ -95,10 +99,12 @@ public class HomeFragmentReport extends Fragment implements View.OnClickListener
                 String body = "Sintomas;Diagnostico";
                 String username = "ana";
                 String userid = "12";
-                String location = "3.454563, 5.23534";
+                String location = "3.5753, 5.52753";
                 String status = "1";
                 long number = 3;
                 String caseId = UUID.randomUUID().toString();
+
+                System.out.println(location);
 
                 CaseTicket caseTicket = new CaseTicket(body, actualDate, id, username, userid, location, status, number, name, age,caseId);
                 Gson gson = new Gson();

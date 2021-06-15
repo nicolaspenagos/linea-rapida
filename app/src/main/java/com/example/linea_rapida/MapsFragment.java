@@ -47,8 +47,21 @@ public class MapsFragment extends Fragment implements LocationListener {
     private String provider;
     private Geocoder geocoder;
 
+    private String ubicationForReport;
 
     private TextView distanceTV;
+
+    public MapsFragment(){
+
+    }
+
+    public static MapsFragment newInstance() {
+        MapsFragment fragment = new MapsFragment();
+        Bundle args = new Bundle();
+
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @SuppressLint("MissingPermission")
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
@@ -72,6 +85,7 @@ public class MapsFragment extends Fragment implements LocationListener {
 
             map = googleMap;
             map.setMyLocationEnabled(true);
+
 
             Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.marker);
             Bitmap sacaleBitmap = Bitmap.createScaledBitmap(
@@ -115,7 +129,10 @@ public class MapsFragment extends Fragment implements LocationListener {
 
         if(location!=null)
          updateDistance(location);
+         ubicationForReport = location.getLatitude() + ", " + location.getLongitude();
+         System.out.println(ubicationForReport);
         manager.requestLocationUpdates(provider, 1000, 1, (LocationListener) this);
+
 
         if(openHere!=null){
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(openHere, 16));
@@ -125,6 +142,7 @@ public class MapsFragment extends Fragment implements LocationListener {
 
                 LatLng myPos = new LatLng(location.getLatitude(), location.getLongitude());
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(myPos, 16));
+
 
             }
         }
@@ -195,5 +213,14 @@ public class MapsFragment extends Fragment implements LocationListener {
             distanceTV.setText(""+Math.round(distanceInMeters)+" m");
         }
 
-    };
+    }
+
+    public String getUbicationForReport(){
+        return ubicationForReport;
+    }
+
+    public void setUbicationForReport(String ubicationForReport){
+        this.ubicationForReport = ubicationForReport;
+    }
+
 }

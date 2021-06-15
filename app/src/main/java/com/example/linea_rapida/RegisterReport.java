@@ -43,6 +43,7 @@ public class RegisterReport extends Fragment {
 
     public static RegisterReport newInstance() {
         RegisterReport fragment = new RegisterReport();
+
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -88,6 +89,13 @@ public class RegisterReport extends Fragment {
         chestReport.setOnClickListener(
                 v -> {
                     ((MainActivity)getActivity()).showFragment(ChestBodyReport.newInstance());
+                }
+
+        );
+
+        girarBtn.setOnClickListener(
+                v -> {
+                    ((MainActivity)getActivity()).showFragment(ReportBackBodyFragment.newInstance());
                 }
 
         );
