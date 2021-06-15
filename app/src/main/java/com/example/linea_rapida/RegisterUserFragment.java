@@ -42,6 +42,8 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
     private ImageView backBtn;
     private TextView signUpErrorTv;
     private TextView headerText;
+    private TextView aet_textview;
+    private TextView aed_textview;
 
     private String userId_to_edit;
 
@@ -91,6 +93,9 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         signUpErrorTv = root.findViewById(R.id.signUpErrorTV);
         backBtn = root.findViewById(R.id.button_back2);
         headerText = root.findViewById(R.id.headerText);
+        aet_textview = root.findViewById(R.id.addEditTextView);
+        aed_textview = root.findViewById(R.id.addEditDescTextView);
+
 
         backBtn.setOnClickListener(
                 v -> {
@@ -277,6 +282,8 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                         passwordET.setText("password");
                         passwordET.setEnabled(false);
                         signUpBtn.setText("Guardar");
+                        aet_textview.setText("Editar usuario");
+                        aed_textview.setText("Edita la información básica del usuario");
 
                         if (u.getGender().equals("M")){
                             manRdoBtn.setChecked(true);

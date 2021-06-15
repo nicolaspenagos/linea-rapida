@@ -174,6 +174,11 @@ public class MapsFragment extends Fragment implements LocationListener {
 
     }
 
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
     public void updateDistance(Location location){
 
         float[] results = new float[1];

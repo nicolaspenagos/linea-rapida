@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/addEditDescTextView" />
 
     <EditText
         android:id="@+id/signUpEmailET"
@@ -198,7 +198,7 @@
         app:srcCompat="@drawable/add_user_doctor" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/addEditTextView"
         style="@style/AppHeaderTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -209,13 +209,13 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/addEditDescTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingresa la información básica del nuevo usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/addEditTextView" />
 
     <TextView
         android:id="@+id/textView18"
