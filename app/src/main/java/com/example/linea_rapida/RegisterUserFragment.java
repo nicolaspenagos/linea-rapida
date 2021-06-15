@@ -276,7 +276,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                     try {
                         User u = command.getResult().toObject(User.class);
 
-                        headerText.setText("Editar usuario");
+                        headerText.setText("EDITAR USUARIO");
                         fullnameET.setText(u.getFullName());
                         emailET.setText(u.getEmail());
                         emailET.setEnabled(false);
