@@ -23,20 +23,7 @@ public class ReportBackBodyFragment extends Fragment {
     private Button backSymptomsButton;
     private ImageButton turnFrontBodyButton;
 
-    private RadioButton murEsterBtn;
-    private RadioButton crepBtn;
-    private RadioButton sibilanciasBtn;
-    private RadioButton froteBtn;
-
-    private TextView murEsterText;
-    private TextView crepText;
-    private TextView sibilanciasText;
-    private TextView froteText;
-
-    private Button agregarSintomas;
-
-    private String sintomas;
-
+    
     public ReportBackBodyFragment() {
         // Required empty public constructor
     }
@@ -66,17 +53,7 @@ public class ReportBackBodyFragment extends Fragment {
         backSymptomsButton = root.findViewById(R.id.backSymptomsButton);
         turnFrontBodyButton = root.findViewById(R.id.girarButton2);
 
-        murEsterBtn = root.findViewById(R.id.murEsterBtn);
-        crepBtn = root.findViewById(R.id.crepBtn);
-        sibilanciasBtn = root.findViewById(R.id.sibilanciasBtn);
-        froteBtn = root.findViewById(R.id.froteBtn);
 
-        murEsterText = root.findViewById(R.id.murmulloEsterText);
-        crepText = root.findViewById(R.id.crepitosText);
-        sibilanciasText = root.findViewById(R.id.sibilanciasText);
-        froteText = root.findViewById(R.id.froteText);
-
-        agregarSintomas = root.findViewById(R.id.addBackSymptom);
 
         backSymptomsButton.setOnClickListener(
                 v -> {
@@ -92,38 +69,8 @@ public class ReportBackBodyFragment extends Fragment {
 
         );
 
-        sintomas = "";
-
-
-        agregarSintomas.setOnClickListener(
-                v -> {
-                    String finalSin = verificarSintomas();
-                    ((MainActivity)getActivity()).setSintomasEspalda(finalSin);
-                    System.out.println(finalSin);
-                }
-
-        );
 
         return root;
     }
 
-    public String verificarSintomas(){
-
-        if(murEsterBtn.isChecked()){
-            sintomas += murEsterText.getText() + ",";
-        }
-
-        if(crepBtn.isChecked()){
-            sintomas += crepText.getText() + ",";
-        }
-
-        if(sibilanciasBtn.isChecked()){
-            sintomas += sibilanciasText.getText() + ",";
-        }
-
-        if(froteBtn.isChecked()){
-            sintomas += froteText.getText() + ",";
-        }
-        return sintomas;
-    }
 }
