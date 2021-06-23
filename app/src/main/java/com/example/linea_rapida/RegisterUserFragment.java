@@ -134,14 +134,9 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                                 String adminEmail = preferences.getString("email", "NO_EMAIL");
                                 String adminPassword = preferences.getString("password", "NO_PASSWORD");
 
-                                createUser(fullname, email, username, id);
+                                createUser(fullname, email, username, id, adminEmail, adminPassword);
 
-                                auth.signOut();
-                                auth.signInWithEmailAndPassword(adminEmail, adminPassword).addOnCompleteListener(
-                                        task1 -> {
-                                            ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
-                                        }
-                                );
+
 
 
                             }
@@ -156,7 +151,40 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
 
     }
 
-    private void createUser(String fullname, String email, String username, String id) {
+    private void createUser(String fullname, String email, String username, String id,
+                            String adminEmail, String adminPassword) {
+
+        // Creating the role
+        Role role;
+
+        if(plantRdoBtn.isChecked())
+            role =  new Role(Role.DOCTOR_ROLE);
+
+        else if(fieldRdoBtn.isChecked())
+            role =  new Role(Role.REPORTER_ROLE);
+        else  if(adminRdoBtn.isChecked())
+            role = new Role(Role.ADMIN_ROLE);
+        else
+            return;
+
+        String gender = (manRdoBtn.isChecked())? "M" : "W";
+
+        User newUser = new User(username, id, role, fullname, email, gender);
+
+        db.collection("users").document(newUser.getId()).set(newUser).addOnCompleteListener(
+                command -> {
+                    auth.signOut();
+                    auth.signInWithEmailAndPassword(adminEmail, adminPassword).addOnCompleteListener(
+                            task1 -> {
+                                ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
+                            }
+                    );
+                });
+
+
+    }
+
+    private void updateUser(String fullname, String email, String username, String id) {
 
         // Creating the role
         Role role;
@@ -176,8 +204,6 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
         User newUser = new User(username, id, role, fullname, email, gender);
 
         db.collection("users").document(newUser.getId()).set(newUser);
-
-
     }
 
     private boolean checkSignUpData(String fullname, String email, String username, String password, boolean plant, boolean field, boolean admin, boolean man, boolean woman) {
@@ -237,7 +263,7 @@ public class RegisterUserFragment extends Fragment implements View.OnClickListen
                     if (userId_to_edit == null){
                         signUp(fullname, email, username, password);
                     }else {
-                        createUser(fullname, email, username, userId_to_edit);
+                        updateUser(fullname, email, username, userId_to_edit);
                         ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
                     }
                     // ((MainActivity) getActivity()).showFragment(HomeFragmentAdmin.newInstance());
